@@ -12,6 +12,12 @@
 body{
     margin: 0;
 }
+*{
+    outline: none; //选中框
+}
+li {
+    list-style:none;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -49,6 +55,15 @@ body{
 }
 img {
     content: normal !important;
+}
+
+//用svg  结合 postcss-with-svg  backgroung-image() 作移动端的兼容
+@svg spuare {
+    @react {
+      fill: var(--color, black);
+      width:100%;
+      height: 100%;
+  }
 }
 #nav {
   padding: 30px;
