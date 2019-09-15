@@ -1,3 +1,72 @@
+
 module.exports = {
-  lintOnSave: false
+  lintOnSave: false,
+  css: {
+    // extract: true   //默认 生产环境下是 true，开发环境下是 false
+    // loaderOptions: {}
+  },
+  chainWebpack: config => { // 当 prefetch 插件被禁用时，你可以通过 webpack 的内联注释手动选定要提前获取的代码区块：import(/* webpackPrefetch: true */ './someAsyncComponent.vue')
+  //   // 移除 prefetch 插件     // Prefetch 链接将会消耗带宽。如果你的应用很大且有很多 async chunk，而用户主要使用的是对带宽较敏感的移动端，那么你可能需要关掉 prefetch 链接并手动选择要提前获取的代码区块。
+  //   config.plugins.delete('prefetch')
+  //
+  //   // 或者
+  //   // 修改它的选项：
+  //   config.plugin('prefetch').tap(options => {
+  //     options[0].fileBlacklist = options[0].fileBlacklist || []
+  //     options[0].fileBlacklist.push(/myasyncRoute(.)+?\.js$/)
+  //     return options
+  //   })
+    // 开启图片压缩
+    config.module.rule('images')
+      .test(/\.(png|jpe?g|gif|svg)?$/)
+      .use('image-webpack-loader')
+      .loader('image-webpack-loader')
+      .options({
+        // bypassOnDebug: ture,  //webpack@1.x   Using this, no processing is done when webpack 'debug' mode is used and the loader acts as a regular file-loader
+        disable: true // same functionality as bypassOnDebug webpack@2.x and newer
+      })
+
+    // 开启 css 和 html 压缩
+    if (envMode() === 'production') {
+      config.plugin('compressionPlugin')
+        .use(new [this.pluginOptions.CompressionPlugin]())
+    }
+  },
+  configureWebpack: {
+    optimization: {
+      minimize: envMode() === 'production', // 开发环境不压缩
+      splitChunks: {
+        chunks: 'async', // 共有三个值 initial (初始模块) 、 async (按需加载模块) 和 all (全部模块)
+        minSize: 30000, // 模块超过30k自动被抽离成公共模块
+        minChunks: 1, // 模块被引入 >= 1 次 , 便分割
+        maxAsyncRequests: 5, // 异步加载chunk的并发请求数量<= 5
+        maxInitialRequests: 3, // 一个入口并发加载的 chunk熟练 <= 3  //为了满足这两个条件，webpack有可能受限于包的最大数量值，生成的代码体积往上增加。
+        name: true, // 默认由模块名+hash命名，名称相同时多个模块将合并为一个，可以设置为function
+        automaticNameDelimiter: '~', // 命名分割符  e.g. vendors~main.js
+        cacheGroups: { // 缓存组，会继承和覆盖splitChunks的配置
+          default: {
+            minChunks: 2, // 模块被引用>=2 次，拆分至vendors 公共模块
+            priority: -20, // 优先级
+            reuseExistingChunk: true // 默认使用已有模块
+          },
+          vendors: {
+            test: /node_modules/, // 表示默认拆分node_modules中的模块
+            priority: -10
+          }
+        }
+      }
+    }
+  },
+  pluginOptions: {
+    CompressionPlugin: { // 配置 css 和 html 压缩
+      test: /\.html$|\.css/, // 匹配文件名
+      threshold: 6144, // 对超过6k(6*1024)的数据压缩
+      deleteOriginalAssets: false // 不删除源文件
+    }
+  }
+}
+
+// 确定模式
+function envMode () {
+  return process.env.NODE_ENV
 }
