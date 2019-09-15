@@ -1,9 +1,39 @@
+// const webpack = require('webpack')
+// const path = require('path')
+const CompressionPlugin = require('compression-webpack-plugin')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+// 路径处理函数
+// function resolve (_path) {
+//   return path.resolve(__dirname, './', _path)
+// }
+
+// 设置BASE_URL
+// (function setBaseUrl(mode) {
+//   process.env.BASE_URL = mode === "production"? "./":"./";
+// }(envMode ()))
+
+// 当dll 变化时 add-asset-html-webpack-plugin 插件 自动重新导入
+// const autoAddDllRes = function () {
+//   const AddAssetHtmlPlugin = require('add-asset-html-webpack-plugin')
+//   return new AddAssetHtmlPlugin([{ // 往html中注入dll js
+//     publicPath: './dll/', // 注入到html中的路径
+//     outputPath: 'dll', // 最终输出的目录
+//     filepath: resolve('src/assets/dll/*.js'),
+//     includeSourceMap: false,
+//     typeOfAsset: 'js' // options js、css; default js
+//   }])
+// }
 
 module.exports = {
   lintOnSave: false,
+  publicPath: envMode() === 'production' ? './' : './', // 当静态资源和HTML文件放在一起时
   css: {
     // extract: true   //默认 生产环境下是 true，开发环境下是 false
-    // loaderOptions: {}
+    loaderOptions: {
+      css: {
+        // filename: "./static/[name]~[contenthash:4].css"
+      }
+    }
   },
   chainWebpack: config => { // 当 prefetch 插件被禁用时，你可以通过 webpack 的内联注释手动选定要提前获取的代码区块：import(/* webpackPrefetch: true */ './someAsyncComponent.vue')
   //   // 移除 prefetch 插件     // Prefetch 链接将会消耗带宽。如果你的应用很大且有很多 async chunk，而用户主要使用的是对带宽较敏感的移动端，那么你可能需要关掉 prefetch 链接并手动选择要提前获取的代码区块。
@@ -26,13 +56,22 @@ module.exports = {
         disable: true // same functionality as bypassOnDebug webpack@2.x and newer
       })
 
-    // 开启 css 和 html 压缩
+    // console.log(options, options.pluginOptions);
+    // 开启 css 和 html压缩
     if (envMode() === 'production') {
       config.plugin('compressionPlugin')
-        .use(new [this.pluginOptions.CompressionPlugin]())
+        .use(new CompressionPlugin({ // 配置 css 和 html压缩
+          test: /\.html$|\.css/, // 匹配文件名
+          threshold: 6144, // 对超过6k(6*1024)的数据压缩
+          deleteOriginalAssets: false // 不删除源文件
+        }))
     }
   },
   configureWebpack: {
+    // entry: envMode() === 'production' ? './src/main.js' : './src/main.dev.js',
+    // output: {
+    //   filename: './static/[name].[hash:4].js'
+    // },
     optimization: {
       minimize: envMode() === 'production', // 开发环境不压缩
       splitChunks: {
@@ -55,14 +94,35 @@ module.exports = {
           }
         }
       }
-    }
+    },
+    // externals: {
+    //   ...(envMode() === 'production' ? {
+    //     'Vue': 'vue',
+    //     'Router': 'vue-outer',
+    //     'Vuex': 'vuex',
+    //     'axios': 'axios',
+    //     'swiper': 'swiper' } : {})
+    // },
+    plugins: [
+      new HtmlWebpackPlugin({
+        filename: 'index.html',
+        template: './public/index.html',
+        inject: true
+      })
+      // ...(envMode() === 'production' ? [autoAddDllRes()] : []),
+      // ...(envMode() === 'production' ? [
+      //   new webpack.DllReferencePlugin({
+      //     manifest: require('./vue.dll.manifest.json')
+      //   })
+      // ] : [])
+    ]
   },
   pluginOptions: {
-    CompressionPlugin: { // 配置 css 和 html 压缩
-      test: /\.html$|\.css/, // 匹配文件名
-      threshold: 6144, // 对超过6k(6*1024)的数据压缩
-      deleteOriginalAssets: false // 不删除源文件
-    }
+    // CompressionPlugin: new CompressionPlugin({ // 配置 css 和 html 压缩
+    //   test: /\.html$|\.css/, // 匹配文件名
+    //   threshold: 6144, // 对超过6k(6*1024)的数据压缩
+    //   deleteOriginalAssets: false // 不删除源文件
+    // })
   }
 }
 
