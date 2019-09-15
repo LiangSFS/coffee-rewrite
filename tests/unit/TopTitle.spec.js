@@ -2,6 +2,11 @@ import { shallowMount } from '@vue/test-utils'
 import TopTitle from '@/components/TopTitle.vue'
 
 describe('TopTitle.vue', () => {
+  it('is a vue instance', () => {
+    const wrapper = shallowMount(TopTitle)
+    expect(wrapper.isVueInstance()).toBeTruthy()
+  })
+
   it('renders props.backText when passed', () => {
     const backText = '返回'
     const wrapper = shallowMount(TopTitle, {

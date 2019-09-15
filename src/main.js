@@ -8,6 +8,8 @@ import axios from './plugins/axios.js'
 
 import 'swiper/dist/css/swiper.css'
 
+// import './assets/js/iconfont.js';
+
 Vue.use(VueAwesomeSwiper)
 Vue.use(axios)
 
