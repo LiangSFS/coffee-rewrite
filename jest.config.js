@@ -6,9 +6,9 @@ module.exports = {
     'vue'
   ],
   transform: {
-    '^.+\\.vue$': 'vue-jest',
+    '^.+\\.vue$': '<rootDir>/node_modules/vue-jest',
     '.+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',
-    '^.+\\.jsx?$': 'babel-jest'
+    '^.+\\.jsx?$': '<rootDir>/node_modules/babel-jest' /// / 用babel-jest处理js  node_modules
   },
   transformIgnorePatterns: [
     '/node_modules/'

@@ -1,10 +1,7 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <router-view />
+    <router-view  name="tabBar" />
   </div>
 </template>
 
@@ -57,7 +54,7 @@ img {
     content: normal !important;
 }
 
-//用svg  结合 postcss-with-svg  backgroung-image() 作移动端的兼容
+//用svg  结合 postcss-with-svg  backgroung-image() 作移动端的1px兼容
 @svg spuare {
     @react {
       fill: var(--color, black);
@@ -65,6 +62,15 @@ img {
       height: 100%;
   }
 }
+//字体图标 运用 svg   symbol方式引入
+.icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
 #nav {
   padding: 30px;
   a {

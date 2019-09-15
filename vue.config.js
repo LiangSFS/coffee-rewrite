@@ -27,6 +27,9 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 module.exports = {
   lintOnSave: false,
   publicPath: envMode() === 'production' ? './' : './', // 当静态资源和HTML文件放在一起时
+  transpileDependencies: [
+    'node_modules/vue-template-es2015-compiler/buble.js'
+  ],
   css: {
     // extract: true   //默认 生产环境下是 true，开发环境下是 false
     loaderOptions: {
