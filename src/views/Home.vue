@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <TopTitle title="咖啡小窝"/>
-    <swiper   :options="bannerOption" >
+    <swiper :options="bannerOption" >
       <swiper-slide   v-for="slide in bannerSlides" :key="slide.id">
           <div aspectratio class="banner-img">
               <img aspectratio-content :src="slide.url" :alt="slide.alt" :title="slide.title" />
@@ -11,7 +11,7 @@
     </swiper>
     <div class="coffee-msg">
         <ul class="guide" >
-            <li v-for="guide in coffeeGuids" class="guide-item" :key="guide.id">
+            <li v-for="guide in coffeeGuides" class="guide-item" :key="guide.id">
                 <div aspectratio class="iconCoffee">
                     <img aspectratio-content  :src="guide.iconUrl" alt="" />
                 </div>
@@ -23,7 +23,7 @@
         <h2 class="title">
             <img class="selectIcon" src="../assets/home/selected.png"  />今日精选
         </h2>
-        <swiper :options="todaySelectOption" >
+        <swiper  :options="todaySelectOption" >
             <swiper-slide  v-for="slide in selectedSlides" :key="slide.id">
                 <div  class="today-item">
                     <div aspectratio class="today-img">
@@ -51,6 +51,15 @@ import { swiper, swiperSlide } from 'vue-awesome-swiper'
 
 export default {
   name: 'home',
+  created () {
+    // console.log(this, this.apiGet);
+    this.apiGet('/api/home', {}).then((data) => {
+      data = data.data
+      this.bannerSlides = data.banner
+      this.coffeeGuides = data.guides
+      this.selectedSlides = data.selected
+    })
+  },
   data: () => ({
     bannerOption: {
       autoplay: {
@@ -62,166 +71,15 @@ export default {
         clickable: true
       }
     },
-    bannerSlides: [
-      {
-        id: 0,
-        title: '1',
-        alt: '1',
-        url: 'https://liangsfs.github.io/coffee-pictrue/home/011.jpg'
-      },
-      {
-        id: 1,
-        title: '2',
-        alt: '2',
-        url: 'https://liangsfs.github.io/coffee-pictrue/home/012.jpg'
-      },
-      {
-        id: 2,
-        title: '3',
-        alt: '3',
-        url: 'https://liangsfs.github.io/coffee-pictrue/home/013.jpg'
-      }
-    ],
+    bannerSlides: [],
 
-    coffeeGuids: [
-      {
-        id: 0,
-        iconUrl: 'https://liangsfs.github.io/coffee-pictrue/home/b1.png',
-        title: '咖啡菜单'
-      },
-      {
-        id: 1,
-        iconUrl: 'https://liangsfs.github.io/coffee-pictrue/home/b2.png',
-        title: '冲煮方式'
-      },
-      {
-        id: 2,
-        iconUrl: 'https://liangsfs.github.io/coffee-pictrue/home/b3.png',
-        title: '记录风味'
-      },
-      {
-        id: 3,
-        iconUrl: 'https://liangsfs.github.io/coffee-pictrue/home/b4.png',
-        title: '品味余香'
-      }
-    ],
+    coffeeGuides: [],
 
     todaySelectOption: {
       freeMode: true,
       slidesPerView: 1.1
     },
-    selectedSlides: [
-      {
-        id: 0,
-        img: {
-          title: '1',
-          alt: '1',
-          url: 'https://liangsfs.github.io/coffee-pictrue/home/timg.jpg'
-        },
-        name: 'Allan Lesch',
-        describe: 'Maxime dolorem'
-
-      },
-      {
-        id: 1,
-        img: {
-          title: '2',
-          alt: '2',
-          url: 'https://liangsfs.github.io/coffee-pictrue/home/timg.jpg'
-        },
-        name: 'Dennis Funk',
-        describe: 'Iusto omnis adi'
-
-      },
-      {
-        id: 2,
-        img: {
-          title: '3',
-          alt: '3',
-          url: 'https://liangsfs.github.io/coffee-pictrue/home/timg.jpg'
-        },
-        name: 'Zachary Sawayn',
-        describe: 'Non est odit ra'
-
-      },
-      {
-        id: 3,
-        img: {
-          title: '4',
-          alt: '4',
-          url: 'https://liangsfs.github.io/coffee-pictrue/home/timg.jpg'
-        },
-        name: 'Elvis Herman',
-        describe: 'Necessitatibus '
-
-      },
-      {
-        id: 4,
-        img: {
-          title: '5',
-          alt: '5',
-          url: 'https://liangsfs.github.io/coffee-pictrue/home/timg.jpg'
-        },
-        name: 'Mervin Bruen',
-        describe: 'Temporibus blan'
-
-      },
-      {
-        id: 5,
-        img: {
-          title: '6',
-          alt: '6',
-          url: 'https://liangsfs.github.io/coffee-pictrue/home/timg.jpg'
-        },
-        name: 'Ms. Emelia Kohler',
-        describe: 'Quis facilis qu'
-
-      },
-      {
-        id: 6,
-        img: {
-          title: '7',
-          alt: '7',
-          url: 'https://liangsfs.github.io/coffee-pictrue/home/timg.jpg'
-        },
-        name: 'Mrs. Liliane Carter',
-        describe: 'Est quaerat ut '
-
-      },
-      {
-        id: 7,
-        img: {
-          title: '8',
-          alt: '8',
-          url: 'https://liangsfs.github.io/coffee-pictrue/home/timg.jpg'
-        },
-        name: 'Lindsey Dickinson',
-        describe: 'A suscipit itaq'
-
-      },
-      {
-        id: 8,
-        img: {
-          title: '9',
-          alt: '9',
-          url: 'https://liangsfs.github.io/coffee-pictrue/home/timg.jpg'
-        },
-        name: 'Rusty Macejkovic',
-        describe: 'Vel porro tempo'
-
-      },
-      {
-        id: 9,
-        img: {
-          title: '10',
-          alt: '10',
-          url: 'https://liangsfs.github.io/coffee-pictrue/home/timg.jpg'
-        },
-        name: 'Arvid Nader',
-        describe: 'Vel sunt magnam'
-
-      }
-    ]
+    selectedSlides: []
   }),
   components: {
     TopTitle,
@@ -232,7 +90,7 @@ export default {
 </script>
 
 <style  lang="less">
-    .banner-img {
+    .banner-img{
         width: 750px;
     }
     .banner-img{

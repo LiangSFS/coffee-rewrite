@@ -30,6 +30,19 @@ module.exports = {
   assetsDir: 'static',
   lintOnSave: envMode() === 'production',
   productionSourceMap: false,
+  devServer: {
+    port: 3000,
+    open: true,
+    proxy: {
+      '/api': {
+        target: 'https://easy-mock.com/mock/5d7f67c2fab82468ca6debb1/eg',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': '/'
+        }
+      }
+    }
+  },
   css: {
     // extract: true   //默认 生产环境下是 true，开发环境下是 false
     loaderOptions: {
