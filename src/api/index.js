@@ -12,7 +12,7 @@ export default {
       value: http(axios)
     })
 
-    Object.keys(http).forEach((apiMethod) => {
+    Object.keys(http(axios)).forEach((apiMethod) => {
       Object.defineProperty(_Vue.prototype, apiMethod, {
         configuerable: true,
         enumerable: true,

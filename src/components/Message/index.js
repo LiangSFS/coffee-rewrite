@@ -7,7 +7,7 @@ import MessageVue from './Message.vue'
 
 // 默认配置
 const defaults = {
-  show: true,
+  show: false,
   text: '请求超时，请检查网络',
   duration: 3000
 }
@@ -45,6 +45,7 @@ export default (function (_Vue) {
       data: options
     })
     parent.appendChild(instance.$el)
+    instance.show = true
     _Vue.nextTick(() => {
       setTimeout(() => {
         instance.close()

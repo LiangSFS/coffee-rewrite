@@ -13,7 +13,7 @@ export default {
     show: false,
     text: '数据加载失败，请检查网路',
     duration: 3000,
-    type: 'error'
+    type: 'waring'
   })
 }
 </script>
@@ -29,10 +29,13 @@ export default {
         left:50%;
         border-radius: 12px;
         transform: translateX(-50%);
+        color: #fff;
+    }
+    .warning{
+        background-color: orange;
     }
     .error{
         background-color: red;
-        color: #fff;
     }
     .success {
         background-color: green;

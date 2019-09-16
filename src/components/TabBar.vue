@@ -44,6 +44,7 @@ export default {
                 flex-direction: column;
                 align-items:center;
                 color:#636b6f;
+                background-color:#fff;
             }
         }
         .iconSvg{
