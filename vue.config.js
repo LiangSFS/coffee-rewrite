@@ -25,7 +25,7 @@ function resolve (dir) {
 // }
 
 module.exports = {
-  publicPath: '/', // 当静态资源和HTML文件都放在服务器上的直接子路径
+  publicPath: './', // 当静态资源和HTML文件都放在服务器上的直接子路径
   outputDir: 'dist',
   assetsDir: 'static',
   lintOnSave: envMode() === 'production',
