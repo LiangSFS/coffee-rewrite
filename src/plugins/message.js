@@ -8,7 +8,7 @@ import message from '../components/Message/index.js'
 
 export default {
   install (_Vue) {
-    Object.defineProperty(_Vue, '$message', {
+    Object.defineProperty(_Vue.prototype, '$message', {
       configurable: true,
       enumerable: true,
       value: message

@@ -10,6 +10,10 @@ import '@/assets/icons/index.js' // svg 字体图库批量引入文件
 
 import message from '@/plugins/message.js' // 自己封装的组件引入文件
 
+import apis from './api/index.js' // 自己封装的api
+
+Vue.use(apis) // 绑在 vue 上
+
 Vue.use(message) // 绑在vue 上
 Vue.use(VueAwesomeSwiper)
 
