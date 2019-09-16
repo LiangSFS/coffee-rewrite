@@ -9,7 +9,9 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/',
+      // path: '/coffee-rewrite/',   //github 下
+      // redirect: '/coffee-rewrite/home'
+      path: '/', // 开发环境 下
       redirect: '/home'
     },
     ...routes
