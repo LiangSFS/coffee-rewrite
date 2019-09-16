@@ -9,9 +9,9 @@
 
 export default {
   name: 'About',
-  created () {
-    console.log(2, this.$message)
-    this.$message({})
+  mounted () {
+  //  console.log(this.$message)
+    this.$message({ type: 'error' })
   }
 }
 </script>
