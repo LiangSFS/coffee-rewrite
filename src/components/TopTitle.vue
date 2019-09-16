@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: 'TopTitle',
+  name: 'topTitle',
   props: {
     back: { // 是否有返回按钮
       type: Boolean,
@@ -19,7 +19,7 @@ export default {
     },
     title: {
       type: String,
-      default: ''
+      default: '咖啡小窝'
     },
     bgColor: { // 只支持 十六进制的颜色值
       type: String,

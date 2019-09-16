@@ -2,6 +2,7 @@
  *  Created by liangsfs on 2019-09-15
  */
 import TabBar from '@/components/TabBar.vue'
+import TopTitle from '@/components/TopTitle.vue'
 
 // route level code-splitting
 // this generates a separate chunk (about.[hash].js) for this route
@@ -18,6 +19,7 @@ export let routes = [
     title: '主页',
     className: 'fangzi',
     components: {
+      topTitle: TopTitle,
       tabBar: TabBar,
       default: Home
 
@@ -29,6 +31,7 @@ export let routes = [
     title: '主题',
     className: 'location',
     components: {
+      topTitle: TopTitle,
       tabBar: TabBar,
       default: Theme
 
@@ -40,6 +43,7 @@ export let routes = [
     title: '菜单',
     className: 'caidan',
     components: {
+      topTitle: TopTitle,
       tabBar: TabBar,
       default: list
 
@@ -51,6 +55,7 @@ export let routes = [
     title: '我的',
     className: 'wutouxiang',
     components: {
+      topTitle: TopTitle,
       tabBar: TabBar,
       default: user
     }

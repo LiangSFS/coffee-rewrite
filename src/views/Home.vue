@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <TopTitle title="咖啡小窝"/>
     <swiper :options="bannerOption" >
       <swiper-slide   v-for="slide in bannerSlides" :key="slide.id">
           <div aspectratio class="banner-img">
@@ -45,7 +44,6 @@
 // import 'bootstrap/dist/css/bootstrap.css';
 // @ is an alias to /src
 // import HelloWorld from '@/components/HelloWorld.vue'
-import TopTitle from '@/components/TopTitle.vue'
 
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 
@@ -82,7 +80,6 @@ export default {
     selectedSlides: []
   }),
   components: {
-    TopTitle,
     swiper,
     swiperSlide
   }
