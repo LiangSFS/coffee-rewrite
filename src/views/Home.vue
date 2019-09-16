@@ -51,7 +51,8 @@ export default {
   name: 'home',
   created () {
     // console.log(this, this.apiGet);
-    this.apiGet('/api/home', {}).then((data) => {
+    // this.apiGet('/home', {}).then((data) => {  gitHub
+    this.apiGet('/eg/home', {}).then((data) => {
       data = data.data
       this.bannerSlides = data.banner
       this.coffeeGuides = data.guides
