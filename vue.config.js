@@ -34,12 +34,12 @@ module.exports = {
     port: 3000,
     open: true,
     proxy: {
-      '/api': {
-        target: 'https://easy-mock.com/mock/5d7f67c2fab82468ca6debb1/eg',
-        changeOrigin: true,
-        pathRewrite: {
-          '^/api': '/'
-        }
+      '/eg': {
+        target: 'https://easy-mock.com/mock/5d7f67c2fab82468ca6debb1/',
+        changeOrigin: true
+        // pathRewrite: {
+        //   '^/eg': '/eg'
+        // }
       }
     }
   },

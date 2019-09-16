@@ -14,7 +14,7 @@ const user = () => import(/* webpackChunkName: "home" */'../views/About.vue')
 
 export let routes = [
   {
-  //  path: '/coffee-rewrite/home',
+    // path: '/coffee-rewrite/home',  gitHub
     path: '/home',
     name: 'home',
     title: '主页',
@@ -27,7 +27,7 @@ export let routes = [
     }
   },
   {
-    // path: '/coffee-rewrite/theme',
+    // path: '/coffee-rewrite/theme', gitHub
     path: '/theme',
     name: 'theme',
     title: '主题',
@@ -40,7 +40,7 @@ export let routes = [
     }
   },
   {
-    // path: '/coffee-rewrite/list',
+    // path: '/coffee-rewrite/list', gitHub
     path: '/list',
     name: 'list',
     title: '菜单',
@@ -53,7 +53,7 @@ export let routes = [
     }
   },
   {
-    // path: '/coffee-rewrite/user',
+    // path: '/coffee-rewrite/user',  gitHub
     path: '/user',
     name: 'user',
     title: '我的',
