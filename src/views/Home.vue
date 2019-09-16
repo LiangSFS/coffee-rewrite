@@ -86,7 +86,7 @@ export default {
 }
 </script>
 
-<style  lang="less">
+<style scoped lang="less">
     .banner-img{
         width: 750px;
     }

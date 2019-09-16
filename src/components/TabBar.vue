@@ -30,6 +30,7 @@ export default {
 <style scoped lang="less">
     .tab-bar {
         position:fixed;
+        z-index:99;
         left:0;
         bottom:0;
         width:750px;
