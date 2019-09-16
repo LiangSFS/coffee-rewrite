@@ -47,6 +47,7 @@
     "postcss-url": "^8.0.0",
     "postcss-viewport-units": "^0.1.6",
     "postcss-write-svg": "^3.0.1",
+    "svg-sprite-loader": "^4.1.6",
     "vue-template-compiler": "^2.6.10",
     "webpack-cli": "^3.3.8"
   },

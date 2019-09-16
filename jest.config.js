@@ -6,12 +6,13 @@ module.exports = {
     'vue'
   ],
   transform: {
-    '^.+\\.vue$': '<rootDir>/node_modules/vue-jest',
+    '^.+\\.vue$': 'vue-jest',
     '.+\\.(css|styl|less|sass|scss|svg|png|jpg|ttf|woff|woff2)$': 'jest-transform-stub',
-    '^.+\\.jsx?$': '<rootDir>/node_modules/babel-jest' /// / 用babel-jest处理js  node_modules
+    '^.+\\.jsx?$': 'babel-jest' /// / 用babel-jest处理js  node_modules
   },
   transformIgnorePatterns: [
-    '/node_modules/'
+    '/node_modules/',
+    '../src/assets/icons/'
   ],
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/src/$1'
