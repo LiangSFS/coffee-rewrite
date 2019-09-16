@@ -15,6 +15,8 @@ export let routes = [
   {
     path: '/home',
     name: 'home',
+    title: '主页',
+    className: 'fangzi',
     components: {
       tabBar: TabBar,
       default: Home
@@ -24,6 +26,8 @@ export let routes = [
   {
     path: '/theme',
     name: 'theme',
+    title: '主题',
+    className: 'location',
     components: {
       tabBar: TabBar,
       default: Theme
@@ -33,6 +37,8 @@ export let routes = [
   {
     path: '/list',
     name: 'list',
+    title: '菜单',
+    className: 'caidan',
     components: {
       tabBar: TabBar,
       default: list
@@ -42,6 +48,8 @@ export let routes = [
   {
     path: '/user',
     name: 'user',
+    title: '我的',
+    className: 'wutouxiang',
     components: {
       tabBar: TabBar,
       default: user

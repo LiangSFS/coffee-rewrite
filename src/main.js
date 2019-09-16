@@ -4,14 +4,14 @@ import router from './router/index.js'
 import store from './store/index.js'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 
-import axios from './plugins/axios.js'
-
 import 'swiper/dist/css/swiper.css'
 
-// import './assets/js/iconfont.js';
+import '@/assets/icons/index.js' // svg 字体图库批量引入文件
 
+import message from '@/plugins/message.js' // 自己封装的组件引入文件
+
+Vue.use(message) // 绑在vue 上
 Vue.use(VueAwesomeSwiper)
-Vue.use(axios)
 
 Vue.config.productionTip = false
 

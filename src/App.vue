@@ -15,6 +15,9 @@ body{
 li {
     list-style:none;
 }
+a {
+    text-decoration: none;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -61,14 +64,6 @@ img {
       width:100%;
       height: 100%;
   }
-}
-//字体图标 运用 svg   symbol方式引入
-.icon {
-    width: 1em;
-    height: 1em;
-    vertical-align: -0.15em;
-    fill: currentColor;
-    overflow: hidden;
 }
 
 #nav {
