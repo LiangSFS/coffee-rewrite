@@ -18,9 +18,9 @@
 
 线上  demo   地址 ： [https://liangsfs.github.io/coffee-rewrite/](https://liangsfs.github.io/coffee-rewrite/)
 
+***  注意 ！！！  因为网页 请求数据在gitHub （我另外的项目，gitHub 每天的访问很多）上， 加载 有时会失败（橘色的提示、红色提示是我写的测试），但不是我的网页写的有问题，是网速 （请多刷新几次）***
 
-
-
+ 
 
 ## Usage
 
