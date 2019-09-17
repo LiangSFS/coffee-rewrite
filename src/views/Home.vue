@@ -99,15 +99,6 @@ export default {
         height:31.5vh;
     }
 
-<<<<<<< HEAD
-    .banner-img{
-        width: 750px;
-    }
-    .banner-img{
-        aspect-ratio: "16:9";
-    }
-=======
->>>>>>> dev
     //设置 swiper 点样式
     span.swiper-pagination-bullet{
         width: 30px;
