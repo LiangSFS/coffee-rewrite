@@ -11,7 +11,7 @@ export default {
   name: 'About',
   mounted () {
   //  console.log(this.$message)
-    this.$message({ type: 'error' })
+    this.$message({ type: 'error', text: '用于测试该组件, 重新加载About.vue 就会调用' })
   }
 }
 </script>

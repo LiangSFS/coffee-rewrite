@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <router-view  name="topTitle" />
-    <router-view />
+    <router-view class="content" />
     <router-view  name="tabBar" />
   </div>
 </template>
@@ -26,7 +26,9 @@ a {
   text-align: center;
   color: #2c3e50;
 }
-
+.content{
+    margin-top: 100px;
+}
 .clear-fix::after {
     content: '';
     display: block;

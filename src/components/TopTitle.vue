@@ -37,8 +37,12 @@ export default {
 
 <style scoped lang="less">
     .top {
-        position:relative;
+        position:fixed;
+        top:0;
+        left:0;
+        width: 750px;
         height: 100px;
+        z-index: 999;
         background-color: #1b6d85;
        .back {
            color:#fff;
