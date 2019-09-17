@@ -4,13 +4,23 @@
 
 网站截图( 原网站使用PHP的 laravel框架引入 Vue、Boostrap、Swiper)
 
-![coffee](D:\web测试\project_rewrite\vue-rewrite\img\coffee.jpg)
+![coffee](/img/coffee.jpg)
 
 
 
 原项目的目录结构 (laravel 框架下的resources 存放前端代码)
 
-![coffee-directory](D:\web测试\project_rewrite\vue-rewrite\img\coffee-directory.jpg)
+![coffee-directory](/img/coffee-directory.jpg)
+
+
+
+已经重构好的 咖啡 网站  ，限于条件   vue 路由模式 改为  hash  
+
+线上  demo   地址 ： [https://liangsfs.github.io/coffee-rewrite/](https://liangsfs.github.io/coffee-rewrite/)
+
+
+
+
 
 ## Usage
 
@@ -39,6 +49,8 @@ yarn lint   // ESLint 检测并修改文件
 
 ​        二、 babel-loader 的 ES6 以上语法 转译 兼容各大浏览器
 
+
+
 19.9.15   一、 添加  compression-webpack-plugin 压缩  HTML、css 文件
 
 ​                二、 添加 image-webpack-plugin 压缩 本地 静态图片文件
@@ -64,6 +76,8 @@ yarn lint   // ESLint 检测并修改文件
 
 ​                        至此  项目基本配置已大致完成 、home  组件完成、topTitle通用组件完成、jest 单元测试 
 
+
+
  19.9.16      一、添加 tabBar底部导航组件，导入矢量字体图标 （symbol）创建 iconSvg 组件创建.eslintignore  当lint 时 忽略  其所带的js 文件 ，引入 svg-sprite-loader 处理这类svg 字体图标
 
 ​                    二、封装api  接口请求 （引用 axios 库）、封装message 通知 组件 （在除 home 导航，其他导航都指向 About.vue,  在About组件的 mounted() 钩子函数 直接调用this.$mesage({type: 'error'})   可以切换到 观看效果）
@@ -71,3 +85,11 @@ yarn lint   // ESLint 检测并修改文件
 ​                   三、借用mock 网站 创建 模拟数据，图片数据请求链接 指向该gitHub 线上另个项目（coffee-pictrue）中的图片              
 
 ​                   四、vue.config.js devServer.proxy dev端 代理配置 yarn serve  请求 模拟数据并加载页面已实现
+
+
+
+19.9.17    一 、修复了 vue-awesome-swiper  数据通过异步接口获取时，loop : true ,autoplay.disableOnInteraction: true (部分swiper 设置不生效).
+
+​                 二、 代理Mock地址切换到了 gitHub 另一个 项目中（coffee-json），easy-mock网站的模拟数据接口不稳定 
+
+​                 三、 在 iphone X （高度过高）和 iphone 5 （高度过低） 的 特殊尺寸（相对比 iphone 6 7 8）  下，添加 部分样式 以在视图上兼容（实际上，更合理的做法是 针对这种 特殊尺寸展示不同内容【即 针对其尺寸作一个设计稿】）
