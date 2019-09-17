@@ -3,7 +3,7 @@
         <div aspectratio v-for="item in themeList" :key="item.id" class="theme-item">
             <a @click="itemDescribe(item.swiperApi)" aspectratio-content class="model">
                 <IconSvg className="aixin" />
-                <span>{{item.des}}}</span>
+                <span>{{item.des}}</span>
             </a>
             <img aspectratio-content :src="item.img.url"  :alt="item.img.alt" :title="item.img.title">
         </div>
@@ -16,7 +16,7 @@ import IconSvg from '@/components/IconSvg.vue'
 export default {
   name: 'theme',
   created () {
-    this.apiGet('/coffee-rewrite/theme/list.json', {}).then(data => {
+    this.apiGet('/coffee-json/theme/list.json', {}).then(data => {
       data = data.data
       this.themeList = data
     })
