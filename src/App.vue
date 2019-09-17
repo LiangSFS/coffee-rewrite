@@ -27,7 +27,7 @@ a {
   color: #2c3e50;
 }
 .content{
-    margin-top: 100px;
+    margin: 100px 0 110px;
 }
 .clear-fix::after {
     content: '';

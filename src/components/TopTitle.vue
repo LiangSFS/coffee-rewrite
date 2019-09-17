@@ -1,6 +1,6 @@
 <template>
     <div class="top" :style="{backgroundColor: bgColor }">
-        <span  v-if="back" class="back">{{backText}}</span>
+        <span  v-if="back"  @click="$router.go(-1)" class="back">{{backText}}</span>
         <span v-if="Boolean(title)" class="title">{{title}}</span>
     </div>
 </template>
@@ -28,9 +28,6 @@ export default {
         return !(value.indexOf('#') === 0 && (value.length === 4 || value.length === 7) && !(/[^0-9A-Fa-f]/.test(value)))
       }
     }
-  },
-  methods: {
-
   }
 }
 </script>

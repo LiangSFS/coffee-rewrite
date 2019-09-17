@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router/index.js'
 import store from './store/index.js'
 import VueAwesomeSwiper from 'vue-awesome-swiper'
+import VueLazyload from 'vue-lazyload'
 
 import 'swiper/dist/css/swiper.css'
 
@@ -16,6 +17,7 @@ Vue.use(apis) // 绑在 vue 上
 
 Vue.use(message) // 绑在vue 上
 Vue.use(VueAwesomeSwiper)
+Vue.use(VueLazyload)
 
 Vue.config.productionTip = false
 

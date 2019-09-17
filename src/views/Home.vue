@@ -139,7 +139,7 @@ export default {
         }
     }
     .selected{
-        height:39.3vh;
+        height:37vh;
         background-color: #efefef;
         padding:6px 30px 18px;
         text-align: left;
