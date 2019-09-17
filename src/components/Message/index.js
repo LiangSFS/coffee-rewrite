@@ -40,11 +40,15 @@ export default (function (_Vue) {
       options = Object.assign({}, defaults)
     }
 
+    if (document.body.querySelector('.coffee-message')) return false
+
     const instance = new MessageVueConstructor({
       el: document.createElement('div'),
       data: options
     })
+
     parent.appendChild(instance.$el)
+
     instance.show = true
     _Vue.nextTick(() => {
       setTimeout(() => {

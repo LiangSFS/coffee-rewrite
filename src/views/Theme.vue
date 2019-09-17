@@ -1,11 +1,11 @@
 <template>
     <div  class="theme">
-        <div aspectratio v-for="item in themeList" :key="item.id" class="theme-item">
+        <div aspectratio v-lazy-container="{selector: 'img'}" v-for="item in themeList" :key="item.id" class="theme-item">
             <a @click="itemDescribe(item.swiperApi)" aspectratio-content class="model">
                 <IconSvg className="aixin" />
                 <span>{{item.des}}</span>
             </a>
-            <img aspectratio-content :src="item.img.url"  :alt="item.img.alt" :title="item.img.title">
+            <img aspectratio-content   :data-src="item.img.url"  :alt="item.img.alt" :title="item.img.title">
         </div>
     </div>
 </template>
