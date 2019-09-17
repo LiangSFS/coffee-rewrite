@@ -104,4 +104,18 @@ yarn lint   // ESLint 检测并修改文件
 
 ​                四 、 在主页面 ,两个swiper 的触摸滑动相互影响Bug, 将 banner 抽离出来作为Banner 子组件在引入 ，因此 今天  一 问题要做相应调整【已处理好】
 
-​                五、主题（theme ）组件添加、还有api 接口未完成  
+​                五、主题（theme ）组件添加、还有api 接口未完成 
+
+​                六、修复 因为 cssnano 插件版本升级后 配置       css中  z-index  会被重置为 1 
+
+```javascript
+'cssnano': {
+  // preset: 'advanced', // 需要额外安装 yarn add  cssnano-preset-advanced --dev
+  // autoprefixer: false, // 由于cssnext和cssnano都具有autoprefixer,事实上只需要一个
+  // zindex: false // 只要启用了这个插件, 不设置该属性，z-index的值就会重置为1
+  'cssnano-preset-advanced': { // cssnano 版本升级后  上面的配置已失效
+    zindex: false,
+    autoprefixer: false       
+  }
+}
+```
