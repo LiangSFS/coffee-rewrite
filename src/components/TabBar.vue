@@ -33,6 +33,7 @@ export default {
         z-index:99;
         left:0;
         bottom:0;
+        z-index:999;
         width:750px;
         display: flex;
         justify-content: space-between;

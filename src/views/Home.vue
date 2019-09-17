@@ -1,6 +1,7 @@
 <template>
   <div class="home">
-    <swiper :options="bannerOption" >
+      <!--  **ref="swiperOption"**    动态内容数据  都必须加 ref -->
+    <swiper class="banner" :options="bannerOption" ref="bannerSwiper">
       <swiper-slide   v-for="slide in bannerSlides" :key="slide.id">
           <div aspectratio class="banner-img">
               <img aspectratio-content :src="slide.url" :alt="slide.alt" :title="slide.title" />
@@ -22,7 +23,7 @@
         <h2 class="title">
             <img class="selectIcon" src="../assets/home/selected.png"  />今日精选
         </h2>
-        <swiper  :options="todaySelectOption" >
+        <swiper  :options="todaySelectOption" ref="todaySelectSwiper">
             <swiper-slide  v-for="slide in selectedSlides" :key="slide.id">
                 <div  class="today-item">
                     <div aspectratio class="today-img">
@@ -52,23 +53,38 @@ export default {
   created () {
     // console.log(this, this.apiGet);
     // this.apiGet('/home', {}).then((data) => {  gitHub
-    this.apiGet('/eg/home', {}).then((data) => {
+    // this.apiGet('/eg/home', {}).then((data) => {  easy-mock
+    this.apiGet('/coffee-json/home/data.json', {}).then((data) => {
       data = data.data
       this.bannerSlides = data.banner
+
       this.coffeeGuides = data.guides
       this.selectedSlides = data.selected
+
+      this.$nextTick(() => {
+        this.bannerswiper.init()
+      })
     })
+  },
+
+  computed: {
+    bannerswiper () {
+      return this.$refs.bannerSwiper.swiper
+    }
   },
   data: () => ({
     bannerOption: {
-      autoplay: {
-        disableOnInteraction: false
-      },
+      init: false,
       loop: true,
+      autoplay: {
+        disableOnInteraction: false,
+        stopOnLastSlide: false
+      },
       pagination: {
         el: '.swiper-pagination',
         clickable: true
       }
+
     },
     bannerSlides: [],
 
@@ -87,7 +103,11 @@ export default {
 }
 </script>
 
-<style scoped lang="less">
+<style  lang="less">
+    .banner{
+        height:31.5vh;
+    }
+
     .banner-img{
         width: 750px;
     }
@@ -102,6 +122,7 @@ export default {
     }
 
     .guide{
+        height:8vh;
         display:flex;
         justify-content: space-between;
         align-items:center;
@@ -124,6 +145,7 @@ export default {
         }
     }
     .selected{
+        height:39.3vh;
         background-color: #efefef;
         padding:6px 30px 18px;
         text-align: left;

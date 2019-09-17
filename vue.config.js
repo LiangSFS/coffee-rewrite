@@ -40,6 +40,10 @@ module.exports = {
         // pathRewrite: {
         //   '^/eg': '/eg'
         // }
+      },
+      '/coffee-json': {
+        target: 'https://liangsfs.github.io/',
+        changeOrigin: true
       }
     }
   },
