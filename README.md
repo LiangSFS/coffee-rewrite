@@ -57,7 +57,7 @@ yarn lint   // ESLint 检测并修改文件
 
 ​                三、添加optimization.splitChunks    runtimeChunks 配置项  优化打包
 
-​                四、尝试添加 webpack dll 打包策略 ，结合 externals 以及相关plugins 插件，但是文件引入人存在一定问题，还需要研究
+​                四、尝试添加 webpack dll 打包策略 ，结合 externals 以及相关plugins 插件，但是文件引入仍存在一定问题，还需要研究【未实现】
 
 ​                五、postcss-with-svg {utf8: false} (npm包) 结合background-image () 处理 移动端1px问题
 
@@ -93,3 +93,5 @@ yarn lint   // ESLint 检测并修改文件
 ​                 二、 代理Mock地址切换到了 gitHub 另一个 项目中（coffee-json），easy-mock网站的模拟数据接口不稳定 
 
 ​                 三、 在 iphone X （高度过高）和 iphone 5 （高度过低） 的 特殊尺寸（相对比 iphone 6 7 8）  下，添加 部分样式 以在视图上兼容（实际上，更合理的做法是 针对这种 特殊尺寸展示不同内容【即 针对其尺寸作一个设计稿】）
+
+​                四 、 在主页面 ,两个swiper 的触摸滑动相互影响Bug, 将 banner 抽离出来作为Banner 子组件在引入 ，因此 今天  一 问题要做相应调整【已处理好】

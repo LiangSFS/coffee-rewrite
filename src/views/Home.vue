@@ -1,14 +1,6 @@
 <template>
   <div class="home">
-      <!--  **ref="swiperOption"**    动态内容数据  都必须加 ref -->
-    <swiper class="banner" :options="bannerOption" ref="bannerSwiper">
-      <swiper-slide   v-for="slide in bannerSlides" :key="slide.id">
-          <div aspectratio class="banner-img">
-              <img aspectratio-content :src="slide.url" :alt="slide.alt" :title="slide.title" />
-          </div>
-      </swiper-slide>
-      <div class="swiper-pagination" slot="pagination"></div>
-    </swiper>
+    <Banner class="banner" :BannerOption="bannerOption" :BannerSlides="bannerSlides" :BannerInit="bannerInit"/>
     <div class="coffee-msg">
         <ul class="guide" >
             <li v-for="guide in coffeeGuides" class="guide-item" :key="guide.id">
@@ -48,6 +40,8 @@
 
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 
+import Banner from '@/components/Banner.vue'
+
 export default {
   name: 'home',
   created () {
@@ -62,16 +56,11 @@ export default {
       this.selectedSlides = data.selected
 
       this.$nextTick(() => {
-        this.bannerswiper.init()
+        this.bannerInit = true
       })
     })
   },
 
-  computed: {
-    bannerswiper () {
-      return this.$refs.bannerSwiper.swiper
-    }
-  },
   data: () => ({
     bannerOption: {
       init: false,
@@ -86,6 +75,7 @@ export default {
       }
 
     },
+    bannerInit: false,
     bannerSlides: [],
 
     coffeeGuides: [],
@@ -98,7 +88,8 @@ export default {
   }),
   components: {
     swiper,
-    swiperSlide
+    swiperSlide,
+    Banner
   }
 }
 </script>
@@ -107,12 +98,7 @@ export default {
     .banner{
         height:31.5vh;
     }
-    .banner-img{
-        width: 750px;
-    }
-    .banner-img{
-        aspect-ratio: "16:9";
-    }
+
     //设置 swiper 点样式
     span.swiper-pagination-bullet{
         width: 30px;
