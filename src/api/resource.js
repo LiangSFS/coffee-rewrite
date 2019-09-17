@@ -3,7 +3,7 @@
  */
 
 const TimeOut = 5000 // 请求超时时间
-const ProdBASEURL = 'https://easy-mock.com/mock/5d7f67c2fab82468ca6debb1' // 线上请求api
+const ProdBASEURL = 'https://liangsfs.github.io' // 线上请求api
 const DEVLBASEURL = '' // 模拟api
 
 export default {
