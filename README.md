@@ -43,7 +43,9 @@ yarn lint   // ESLint 检测并修改文件
 
  
 
-19.9.14     项目开始  第一次提交(带有HelloWorld.vue)的空项目
+### 19.9.14     
+
+  项目开始  第一次提交(带有HelloWorld.vue)的空项目(init   Commits on Sep 14, 2019)
 
 ​        一、postcss一系列 loaders  将  px  （设计稿的原尺寸 ） 转化为 vw  单位以实现 移动端适配  （已兼容大部分移动设备）
 
@@ -51,7 +53,9 @@ yarn lint   // ESLint 检测并修改文件
 
 
 
-19.9.15   一、 添加  compression-webpack-plugin 压缩  HTML、css 文件
+### 19.9.15  
+
+​               一、 添加  compression-webpack-plugin 压缩  HTML、css 文件
 
 ​                二、 添加 image-webpack-plugin 压缩 本地 静态图片文件
 
@@ -78,7 +82,9 @@ yarn lint   // ESLint 检测并修改文件
 
 
 
- 19.9.16      一、添加 tabBar底部导航组件，导入矢量字体图标 （symbol）创建 iconSvg 组件创建.eslintignore  当lint 时 忽略  其所带的js 文件 ，引入 svg-sprite-loader 处理这类svg 字体图标
+### 19.9.16  
+
+​                    一、添加 tabBar底部导航组件，导入矢量字体图标 （symbol）创建 iconSvg 组件创建.eslintignore  当lint 时 忽略  其所带的js 文件 ，引入 svg-sprite-loader 处理这类svg 字体图标
 
 ​                    二、封装api  接口请求 （引用 axios 库）、封装message 通知 组件 （在除 home 导航，其他导航都指向 About.vue,  在About组件的 mounted() 钩子函数 直接调用this.$mesage({type: 'error'})   可以切换到 观看效果）
 
@@ -88,7 +94,9 @@ yarn lint   // ESLint 检测并修改文件
 
 
 
-19.9.17    一 、修复了 vue-awesome-swiper  数据通过异步接口获取时，loop : true ,autoplay.disableOnInteraction: true (部分swiper 设置不生效).
+### 19.9.17    
+
+​                 一 、修复了 vue-awesome-swiper  数据通过异步接口获取时，loop : true ,autoplay.disableOnInteraction: true (部分swiper 设置不生效).
 
 ​                 二、 代理Mock地址切换到了 gitHub 另一个 项目中（coffee-json），easy-mock网站的模拟数据接口不稳定 
 
