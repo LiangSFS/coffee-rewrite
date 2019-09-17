@@ -18,10 +18,13 @@ module.exports = {
     },
     'postcss-viewport-units': {},
     'cssnano': {
-      preset: 'advanced', // 需要额外安装 yarn add  cssnano-preset-advanced --dev
-      autoprefixer: false, // 由于cssnext和cssnano都具有autoprefixer,事实上只需要一个
-      'postcss-zindex': false // 只要启用了这个插件, 不设置该属性，z-index的值就会重置为1
-
+      // preset: 'advanced', // 需要额外安装 yarn add  cssnano-preset-advanced --dev
+      // autoprefixer: false, // 由于cssnext和cssnano都具有autoprefixer,事实上只需要一个
+      // zindex: false // 只要启用了这个插件, 不设置该属性，z-index的值就会重置为1
+      'cssnano-preset-advanced': { // cssnano 版本升级后  上面的配置已失效
+        zindex: false,
+        autoprefixer: false
+      }
     }
   }
 }
