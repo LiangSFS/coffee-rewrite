@@ -7,7 +7,7 @@
             </a>
             <img aspectratio-content   :data-src="item.img.url"  :alt="item.img.alt" :title="item.img.title">
         </div>
-        <ModalCover animation="slide-up"  :start="isStartModal"  @click.native="close">
+        <ModalCover animation="slide-up"  v-drag="{close}" :start="isStartModal"  >
             <template #close >
                 <IconSvg class="modal-close" className="shuangxiajiantou"/>
             </template>
@@ -31,6 +31,40 @@ export default {
     themeList: [],
     isStartModal: false // 是否开始 modal 出现
   }),
+  directives: {
+    drag: {
+      bind (el, binding) {
+        let currentEl = el
+        let throttle = true
+
+        console.log(this)
+        currentEl.ontouchstart = function (ev) {
+          ev = ev || window.ev
+
+          let y = ev.changedTouches[0].clientY - currentEl.offsetTop
+
+          document.ontouchmove = function (ev) {
+            if (!throttle) {
+              return false
+            }
+            ev = ev || window.ev
+
+            let moveTop = ev.changedTouches[0].clientY - y
+            if (moveTop > 30) {
+              binding.value.close()
+            }
+            return false
+          }
+          document.ontouchup = function (ev) {
+            ev = ev || window.ev
+            document.ontouchmove = document.ontouchup = null
+          }
+
+          return false
+        }
+      }
+    }
+  },
   methods: {
     itemDescribe (apiUrl) {
       this.isStartModal = true
