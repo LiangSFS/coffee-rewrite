@@ -20,8 +20,8 @@ export let routes = [
     title: '主页',
     className: 'fangzi',
     components: {
-      topTitle: TopTitle,
-      tabBar: TabBar,
+      TopTitle: TopTitle,
+      TabBar: TabBar,
       default: Home
 
     }
@@ -33,8 +33,8 @@ export let routes = [
     title: '主题',
     className: 'location',
     components: {
-      topTitle: TopTitle,
-      tabBar: TabBar,
+      TopTitle: TopTitle,
+      TabBar: TabBar,
       default: Theme
 
     }
@@ -46,8 +46,8 @@ export let routes = [
     title: '菜单',
     className: 'caidan',
     components: {
-      topTitle: TopTitle,
-      tabBar: TabBar,
+      TopTitle: TopTitle,
+      TabBar: TabBar,
       default: list
 
     }
@@ -59,8 +59,8 @@ export let routes = [
     title: '我的',
     className: 'wutouxiang',
     components: {
-      topTitle: TopTitle,
-      tabBar: TabBar,
+      TopTitle: TopTitle,
+      TabBar: TabBar,
       default: user
     }
   }

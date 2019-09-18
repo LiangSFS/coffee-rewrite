@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'IconSvg.vue',
+  name: 'IconSvg',
   props: {
     className: {
       type: String,

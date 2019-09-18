@@ -27,7 +27,7 @@ export default {
         position: fixed;
         top:20px;
         left:50%;
-        z-index:999;  // 添加 z-index  层级 保证在最上层
+        z-index: 9999;  // 添加 z-index  层级 保证在最上层
         border-radius: 12px;
         transform: translateX(-50%);
         color: #fff;
