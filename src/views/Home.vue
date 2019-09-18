@@ -15,11 +15,13 @@
         <h2 class="title">
             <img class="selectIcon" src="../assets/home/selected.png"  />今日精选
         </h2>
-        <swiper  :options="todaySelectOption" ref="todaySelectSwiper">
+        <!-- v-lazy-container="{selector: 'img'}"  class="swiper-lazy" -->
+        <swiper v-lazy-container="{selector: 'img'}"   :options="todaySelectOption" ref="todaySelectSwiper">
             <swiper-slide  v-for="slide in selectedSlides" :key="slide.id">
                 <div  class="today-item">
-                    <div aspectratio class="today-img">
-                        <img aspectratio-content :src="slide.img.url" :alt="slide.img.url" :title="slide.img.url" />
+                    <div aspectratio   class="today-img">
+                        <img aspectratio-content :data-src="slide.img.url" :alt="slide.img.alt" :title="slide.img.title"  />
+                        <!--<div class="swiper-lazy-preloader"></div>-->
                     </div>
                     <h4 class="name">{{slide.name}}</h4>
                     <p class="describe">{{slide.describe}}</p>
@@ -64,6 +66,10 @@ export default {
   data: () => ({
     bannerOption: {
       init: false,
+      initialSlide: 0,
+      lazy: {
+        loadPrevNext: true
+      },
       loop: true,
       autoplay: {
         disableOnInteraction: false,
@@ -82,6 +88,9 @@ export default {
 
     todaySelectOption: {
       freeMode: true,
+      initialSlide: 0,
+      watchSlidesProgress: true,
+      watchSlidesVisibility: true,
       slidesPerView: 1.1
     },
     selectedSlides: []
@@ -94,16 +103,9 @@ export default {
 }
 </script>
 
-<style  lang="less">
+<style scoped lang="less">
     .banner{
         height:31.5vh;
-    }
-
-    //设置 swiper 点样式
-    span.swiper-pagination-bullet{
-        width: 30px;
-        height: 30px;
-        display:inline-block;
     }
 
     .guide{

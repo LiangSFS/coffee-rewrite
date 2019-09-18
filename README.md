@@ -63,7 +63,7 @@ yarn lint   // ESLint 检测并修改文件
 
 ​                四、尝试添加 webpack dll 打包策略 ，结合 externals 以及相关plugins 插件，但是文件引入仍存在一定问题，还需要研究【未实现】
 
-​                五、postcss-with-svg {utf8: false} (npm包) 结合background-image () 处理 移动端1px问题
+​                五、postcss-write-svg {utf8: false} (npm包) 结合background-image () 处理 移动端1px问题
 
 ​                        e.g.  @svg square {
 ​                                             @rect {
@@ -123,6 +123,12 @@ yarn lint   // ESLint 检测并修改文件
 
 ​               一、添加了一个ModalCover  通用组件   可扩展弹出动效。在 theme （主题）组件已应用
 
-拖拽问题 和  阻止默认事件尝试 【暂时没有好的想法】 
+拖拽问题 和  阻止默认事件尝试 【暂时没有好的想法】    使用 移动端的touch事件
 
 ​               二、 添加一个 v-drag  自定义指令  ，处理 今天  一 问题， 性能优化考虑  组件卸载时 取消监听事件
+
+​               三、添加动态数据swiper 在每个 主题 (theme) ，修复swiper 分页器样式问题，less 和postcss 中  postcss-write-svg  兼容问题
+
+​               四、各个swiper 请求数据 图片 各处已放上，之前的页面lazy 懒加载添加，优化加载体验，
+
+swiper  内置 lazy  在不自动切换时 第一个图片一直处于加载（用户体验不好）【已处理】
