@@ -35,18 +35,14 @@ export default {
     drag: {
       bind (el, binding) {
         let currentEl = el
-        let throttle = true
 
-        console.log(this)
+        // console.log(this)
         currentEl.ontouchstart = function (ev) {
           ev = ev || window.ev
 
           let y = ev.changedTouches[0].clientY - currentEl.offsetTop
 
           document.ontouchmove = function (ev) {
-            if (!throttle) {
-              return false
-            }
             ev = ev || window.ev
 
             let moveTop = ev.changedTouches[0].clientY - y
@@ -62,6 +58,11 @@ export default {
 
           return false
         }
+      },
+      unbind (el) {
+        let currentEl = el
+
+        currentEl.ontouchstart = null // 消除绑定时 监听停止
       }
     }
   },
@@ -74,15 +75,9 @@ export default {
       // })
     },
     close (ev) {
-      // ev.preventDefault();
       this.isStartModal = false
-      // (isStartModal = false) && ( $refs.theme.className = 'theme')
-      // this.$refs.theme.className = 'theme content'
       return false
     }
-    // triggerClose() {
-    //
-    // }
   },
   components: {
     IconSvg,
