@@ -7,7 +7,7 @@
 
 <script>
 export default {
-  name: 'topTitle',
+  name: 'TopTitle',
   props: {
     back: { // 是否有返回按钮
       type: Boolean,
