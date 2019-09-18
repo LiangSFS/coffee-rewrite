@@ -60,15 +60,6 @@ img {
     content: normal !important;
 }
 
-//用svg  结合 postcss-with-svg  backgroung-image() 作移动端的1px兼容
-@svg spuare {
-    @react {
-      fill: var(--color, black);
-      width:100%;
-      height: 100%;
-  }
-}
-
 #nav {
   padding: 30px;
   a {

@@ -1,9 +1,10 @@
 <template>
-    <!--  **ref="swiperOption"**    动态内容数据  都必须加 ref -->
-    <swiper  :options="BannerOption" ref="bannerSwiper">
+    <!--  **ref="swiperOption"**    动态内容数据  都必须加 ref v-lazy-container="{selector: 'img'}" -->
+    <swiper    :options="BannerOption" ref="bannerSwiper" id="banner">
         <swiper-slide   v-for="slide in BannerSlides" :key="slide.id">
             <div aspectratio class="banner-img">
-                <img aspectratio-content :src="slide.url" :alt="slide.alt" :title="slide.title" />
+                <img  class="swiper-lazy" aspectratio-content :data-src="slide.url" :alt="slide.alt" :title="slide.title" />
+                <div class="swiper-lazy-preloader"></div>
             </div>
         </swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
@@ -55,5 +56,12 @@ export default {
     }
     .banner-img{
         aspect-ratio: "16:9";
+    }
+
+    //设置 swiper 点样式
+    #banner/deep/ .swiper-pagination-bullet{
+        width: 30px;
+        height: 30px;
+        display:inline-block;
     }
 </style>
