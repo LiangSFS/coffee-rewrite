@@ -156,7 +156,7 @@ export default {
             margin: 10px;
             font-size: 60px;
             .modal{
-                background-color: rgba(0, 0, 0, .2);
+                background-color: rgba(0, 0, 0, .7);
                 z-index: 10;
                 display: flex;
                 flex-direction: column;
@@ -235,10 +235,10 @@ export default {
     }
     @keyframes moveArrow {
         from{
-            top: 30px;
+            top: 10px;
         }
         to{
-            top:60px;
+            top:40px;
             transform: scale(1.4) translateX(-50%);
         }
     }
