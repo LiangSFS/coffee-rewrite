@@ -31,7 +31,7 @@ export default {
        top:0;
        left:0;
        z-index: 1000;  //盖住 TopTitle  TabBar 组件
-       background: rgba(0, 0, 0, .4);
+       background: rgba(0, 0, 0, .5);
        display: flex;
        justify-content: center;
        align-items: center;

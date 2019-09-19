@@ -26,6 +26,9 @@ a {
   text-align: center;
   color: #2c3e50;
 }
+.app-blur{
+    filter: blur(4px)
+}
 .content{
     margin: 100px 0 110px;
 }

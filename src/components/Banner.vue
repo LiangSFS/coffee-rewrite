@@ -63,5 +63,6 @@ export default {
         width: 30px;
         height: 30px;
         display:inline-block;
+        border-radius:100%;
     }
 </style>
