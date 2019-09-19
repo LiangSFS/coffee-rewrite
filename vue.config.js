@@ -138,22 +138,28 @@ module.exports = {
           //   test: /node_modules/, // 表示默认拆分node_modules中的模块
           //   priority: -10
           // }
+
           libs: {
             name: 'chunk-libs',
-            test: /node_modules/,
-            priority: 20,
+            test: /[\\/]node_modules[\\/]/,
+            priority: -10,
             chunks: 'initial'
           },
-          vueAswsomeSwiper: {
-            name: 'chunk-vueAswsomeSwiper',
-            priority: 30,
-            test: /[\\/]node_modules[\\/]_?vue-aswsome-swiper(.*)/ /// / in order to adapt to cnpm
+          swiper: {
+            name: 'chunk-swiper',
+            priority: 10,
+            test: /[\\/]node_modules[\\/]_?swiper[\\/]/
           },
+          // axios: {
+          //   name: 'chunk-axios',
+          //   priority: 10,
+          //   test: /[\\/]node_modules[\\/]_?axios[\\/]/ /// / in order to adapt to cnpm
+          // },
           commons: {
             name: 'chunk-commons',
-            test: resolve('./src/component'), // 公共组件库
+            test: resolve('src/components'), // 公共组件库
             minChunks: 3, // 模块被引入 >= 3 次 , 便分割
-            priority: 10,
+            priority: -20,
             reuseExistingChunk: true // 默认使用已有模块
           }
 
