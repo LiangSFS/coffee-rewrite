@@ -8,9 +8,9 @@ import TopTitle from '@/components/TopTitle.vue'
 // this generates a separate chunk (about.[hash].js) for this route
 // which is lazy-loaded when the route is visited.
 const Home = () => import(/* webpackChunkName: "home" */'../views/Home.vue')
-const Theme = () => import(/* webpackChunkName: "home" */'../views/Theme.vue')
-const list = () => import(/* webpackChunkName: "home" */'../views/About.vue')
-const user = () => import(/* webpackChunkName: "home" */'../views/About.vue')
+const Theme = () => import(/* webpackChunkName: "theme" */'../views/Theme.vue')
+const list = () => import(/* webpackChunkName: "list" */'../views/List.vue')
+const user = () => import(/* webpackChunkName: "user" */'../views/About.vue')
 
 export let routes = [
   {

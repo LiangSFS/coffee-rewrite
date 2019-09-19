@@ -20,6 +20,7 @@
                                     <h5>{{slide.headLine}}</h5>
                                     <div aspectratio class="imgWrap">
                                         <img aspectratio-content class="swiper-lazy" :data-src="slide.img.url" :alt="slide.img.alt"  :title="slide.img.title" />
+                                        <div class="swiper-lazy-preloader"></div>
                                     </div>
                                     <p>{{slide.des}}</p>
                                 </div>
