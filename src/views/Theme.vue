@@ -117,6 +117,12 @@ export default {
         data = data.data
         this.themeSlides = data
         this.isStartModal = true
+
+        // 添加高斯模糊
+        document.querySelector('.top-title').className += ' app-blur'
+        document.querySelector('.tab-bar').className += ' app-blur'
+        // 添加高斯模糊
+
         this.$nextTick(() => {
           this.themeSwiper.init()
           // this.themeSwiper.pagination.update()
@@ -125,6 +131,11 @@ export default {
     },
     close (ev) {
       this.isStartModal = false
+      // 去除高斯模糊
+      document.querySelector('.top-title').className = 'top-title'
+      document.querySelector('.tab-bar').className = 'tab-bar'
+      // 去除高斯模糊
+
       setTimeout(() => {
         this.themeSlides = []
       }, 600) // 600ms Modal层动画过渡时间
@@ -156,7 +167,7 @@ export default {
             margin: 10px;
             font-size: 60px;
             .modal{
-                background-color: rgba(0, 0, 0, .7);
+                background-color: rgba(0, 0, 0, .4);
                 z-index: 10;
                 display: flex;
                 flex-direction: column;
@@ -205,6 +216,7 @@ export default {
         width: 20px;
         height: 20px;
         display:inline-block;
+        border-radius:100%;
     }
 
     .imgWrap {
