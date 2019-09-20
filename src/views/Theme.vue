@@ -148,6 +148,9 @@ export default {
       return this.$refs.themeSwiper.swiper
     }
   },
+  beforeDestroy () {
+    this.close()
+  },
   components: {
     IconSvg,
     ModalCover,
