@@ -151,4 +151,6 @@ swiper  内置 lazy  在不自动切换时 第一个图片一直处于加载（�
 
 ​                一、重修 页面 样式 、图片 加载 、首页(home)【已完成】
 
-​               二、 修复 离开 theme 主题 页面（通过浏览器的返回按钮）、页面样式回到最初的样式
+​                二、修复 离开 theme 主题 页面（通过浏览器的返回按钮）、页面样式回到最初的样式
+
+​                三、vue-awesome-swiper 初始化时 init : true【不要设为false ,当离开该组件时没有点开swiper  init一直是 false，vue 处理swiperDOM 元素会出问题】 ，再次刷新时 （动态数据）调用init（）

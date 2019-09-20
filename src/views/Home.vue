@@ -45,14 +45,13 @@
 
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 
+// import { utils } from '../utils/home.util.js'
+
 import Banner from '@/components/Banner.vue'
 
 export default {
   name: 'home',
   created () {
-    // console.log(this, this.apiGet);
-    // this.apiGet('/home', {}).then((data) => {  gitHub
-    // this.apiGet('/eg/home', {}).then((data) => {  easy-mock
     this.apiGet('/coffee-json/home/data.json', {}).then((data) => {
       data = data.data
       this.bannerSlides = data.banner
@@ -64,6 +63,10 @@ export default {
         this.bannerInit = true
       })
     })
+
+    // console.log(this, this.apiGet);
+    // this.apiGet('/home', {}).then((data) => {  gitHub
+    // this.apiGet('/eg/home', {}).then((data) => {  easy-mock
   },
 
   data: () => ({
