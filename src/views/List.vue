@@ -233,7 +233,7 @@ export default {
             height:100%;
             fill:transparent;
             stroke:var(--color, #ccc);
-            stroke-width: 4px;
+            stroke-width: 1px;
             stroke-dasharray: 130%,  186%;
             stroke-dashoffset: -186%;
         }
