@@ -147,8 +147,10 @@ export default {
             text-align:center;
             flex-direction: column;
             align-items:center;
-            font-size: 16px;
             font-weight:600;
+            span{
+                font-size: 30px;
+            }
         }
     }
     .selected{
