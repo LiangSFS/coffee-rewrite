@@ -16,6 +16,7 @@
                 </div>
                 <div v-lazy-container="{ selector: 'img' }" class="product-list" >
                     <div v-for="listItem in productItem[1].list"  class="detail-item" :key="listItem.id">
+                        <div class="back-line"></div>
                         <div aspectratio class="imgWrap">
                             <img aspectratio-content src="" alt="" />
                         </div>
@@ -106,6 +107,7 @@ export default {
            background-color:#DDE;
            position: relative;
            min-height: 100vh;
+           margin-bottom: 100px;
            .item-title{
                display: flex;
                flex-direction: column;
@@ -136,6 +138,7 @@ export default {
                background-color: #fff;
                font-size: 36px;
                font-weight: 800;
+
            }
        }
 
@@ -146,6 +149,15 @@ export default {
            min-height: 195px;
            margin:15px;
            padding-bottom: 15px;
+           position: relative;
+           .back-line{
+               position: absolute;
+               left:0;
+               bottom:0;
+               width:100%;
+               height:1px;
+               overflow:hidden;
+           }
            .imgWrap{
                width: 180px;
                margin:0 10px;
@@ -230,12 +242,10 @@ export default {
     @svg product-border-bottom{
         @rect{
             width: 100%;
-            height:100%;
+            height:200%;
             fill:transparent;
             stroke:var(--color, #ccc);
             stroke-width: 1px;
-            stroke-dasharray: 130%,  186%;
-            stroke-dashoffset: -186%;
         }
     }
 
@@ -251,10 +261,10 @@ export default {
         background-image: svg(background-line);
     }
 
-    .product-list .detail-item {
+    .product-list .detail-item .back-line {
         background-image: svg(product-border-bottom);
     }
-    .product-list .detail-item:nth-last-child(1){
+    .product-list .detail-item:nth-last-child(1) .back-line{
         background-image: none;
     }
 </style>
