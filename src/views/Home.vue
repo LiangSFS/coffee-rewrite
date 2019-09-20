@@ -5,10 +5,10 @@
       <!--</div>-->
       <Banner class="banner" :BannerOption="bannerOption" :BannerSlides="bannerSlides" :BannerInit="bannerInit"/>
     <div class="coffee-msg" >
-        <ul class="guide" v-lazy-container="{selector: 'img'}">
+        <ul class="guide">
             <li v-for="guide in coffeeGuides" class="guide-item" :key="guide.id">
                 <div aspectratio class="iconCoffee">
-                    <img aspectratio-content  :data-src="guide.iconUrl" alt="" />
+                    <img aspectratio-content  :src="guide.iconUrl" alt="" />
                 </div>
                 <span>{{guide.title}}</span>
             </li>
