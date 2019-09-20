@@ -143,6 +143,7 @@ export default {
            display: flex;
            justify-content:flex-start;
            align-items:center;
+           min-height: 195px;
            margin:15px;
            padding-bottom: 15px;
            .imgWrap{
