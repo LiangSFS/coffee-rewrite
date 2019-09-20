@@ -22,12 +22,16 @@
                                         <img aspectratio-content class="swiper-lazy" :data-src="slide.img.url" :alt="slide.img.alt"  :title="slide.img.title" />
                                         <div class="swiper-lazy-preloader"></div>
                                     </div>
+
                                     <p>{{slide.des}}</p>
                                 </div>
                             </div>
                         </swiper-slide>
                         <div class="swiper-pagination" slot="pagination"></div>
                     </swiper>
+                    <div   v-if="!(themeSlides.length)"  class="empty-coffee">
+                        抱歉， 没有可展示的咖啡信息(*^▽^*)
+                    </div>
                 </div>
             </template>
         </ModalCover>
@@ -40,6 +44,8 @@ import ModalCover from '@/components/ModalCover.vue'
 
 import { swiper, swiperSlide } from 'vue-awesome-swiper'
 
+// import { utils } from '../utils/theme.util.js'
+
 export default {
   name: 'theme',
   created () {
@@ -47,19 +53,20 @@ export default {
       data = data.data
       this.themeList = data
     })
+
     // let resizeEvt =   'orientationchange' in window ? 'orientationchange' : 'resize';
-    // window.addEventListener(resizeEvt,() => {
+    //  window.addEventListener(resizeEvt,() => {
     //   this.$nextTick( () => {
     //     this.themeSwiper.init()
     //   } )
     // })
   },
+
   data: () => ({
     themeList: [],
     isStartModal: false, // 是否开始 modal 出现
     themeOption: {
-      init: false,
-      initialSlide: 0,
+    //  init: false,
       watchSlidesProgress: true,
       watchSlidesVisibility: true,
       slidesPerView: 1.1,
@@ -72,6 +79,7 @@ export default {
       }
     },
     themeSlides: []
+
   }),
   directives: {
     drag: {
@@ -111,7 +119,6 @@ export default {
   methods: {
     itemDescribe (apiUrl) {
       // console.log(apiUrl)
-
       // console.log(this.$refs, this)
       this.apiGet(apiUrl, {}).then((data) => {
         // console.log(data)
@@ -126,7 +133,7 @@ export default {
 
         this.$nextTick(() => {
           this.themeSwiper.init()
-          // this.themeSwiper.pagination.update()
+          this.themeSwiper.pagination.update()
         })
       })
     },
@@ -149,7 +156,7 @@ export default {
     }
   },
   beforeDestroy () {
-    this.close()
+    this.isStartModal && this.close()
   },
   components: {
     IconSvg,
@@ -237,6 +244,15 @@ export default {
     .modal-content {
         width: 750px;
         margin-top: 30px;
+        .empty-coffee{
+            width: 620px;
+            padding:400px 40px;
+            margin: 0 25px;
+            background-color: #fff;
+            color: #757575;
+            font-size: 50px;
+            border-radius: 30px;
+        }
     }
     .modal-close{
         position: absolute;
