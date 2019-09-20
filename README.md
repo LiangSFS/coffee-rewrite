@@ -16,7 +16,7 @@
 
 已经重构好的 咖啡 网站  ，限于条件   vue 路由模式 改为  hash  
 
-线上  demo   地址 ： [https://liangsfs.github.io/coffee-rewrite/](https://liangsfs.github.io/coffee-rewrite/)
+线上  demo   地址 ： [https://liangsfs.github.io/coffee-rewrite/](https://liangsfs.github.io/coffee-rewrite/) 【用手机原生浏览器打开】
 
 ***  注意 ！！！ 一、 我没有做后台，请求数据是gitHub 上只能用hash 模式 ，所以在页面切换时在某些浏览器不生效 ,但是页面布局没问题               二、 因为网页 请求数据在gitHub （我另外的项目，gitHub 每天的访问很多）上， 加载 有时会失败（橘色的提示、红色提示是我写的测试），但不是我的网页写的有问题，是网速 （请多刷新几次）***
 
