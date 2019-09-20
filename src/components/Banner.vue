@@ -55,13 +55,15 @@ export default {
         width: 750px;
     }
     .banner-img{
-        aspect-ratio: "16:9";
+        aspect-ratio: "8:5";
     }
 
     //设置 swiper 点样式
     #banner/deep/ .swiper-pagination-bullet{
         width: 30px;
         height: 30px;
+        position: relative;
+        top: -3.8vh;
         display:inline-block;
         border-radius:100%;
     }
