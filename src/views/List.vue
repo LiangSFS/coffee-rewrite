@@ -105,6 +105,7 @@ export default {
        .products{
            background-color:#DDE;
            position: relative;
+           min-height: 100vh;
            .item-title{
                display: flex;
                flex-direction: column;
