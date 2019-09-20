@@ -1,6 +1,6 @@
 <template>
   <div id="app" >
-      <router-view  name="TopTitle" />
+      <router-view  name="TopTitle" :title="$route.meta.title" />
       <router-view class="content" />
       <router-view  name="TabBar" />
   </div>
@@ -30,7 +30,7 @@ a {
     filter: blur(4px)
 }
 .content{
-    margin: 100px 0 110px;
+    margin-top: 100px;
 }
 .clear-fix::after {
     content: '';

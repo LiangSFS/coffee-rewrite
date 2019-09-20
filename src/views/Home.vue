@@ -1,22 +1,25 @@
 <template>
   <div class="home">
-    <Banner class="banner" :BannerOption="bannerOption" :BannerSlides="bannerSlides" :BannerInit="bannerInit"/>
-    <div class="coffee-msg">
-        <ul class="guide" >
+      <!--<div class="search">-->
+          <!--<input type="search"   />-->
+      <!--</div>-->
+      <Banner class="banner" :BannerOption="bannerOption" :BannerSlides="bannerSlides" :BannerInit="bannerInit"/>
+    <div class="coffee-msg" >
+        <ul class="guide" v-lazy-container="{selector: 'img'}">
             <li v-for="guide in coffeeGuides" class="guide-item" :key="guide.id">
                 <div aspectratio class="iconCoffee">
-                    <img aspectratio-content  :src="guide.iconUrl" alt="" />
+                    <img aspectratio-content  :data-src="guide.iconUrl" alt="" />
                 </div>
                 <span>{{guide.title}}</span>
             </li>
         </ul>
     </div>
-    <div class="selected">
+    <div class="selected" >
         <h2 class="title">
             <img class="selectIcon" src="../assets/home/selected.png"  />今日精选
         </h2>
         <!-- v-lazy-container="{selector: 'img'}"  class="swiper-lazy" -->
-        <swiper v-lazy-container="{selector: 'img'}"   :options="todaySelectOption" ref="todaySelectSwiper">
+        <swiper  v-lazy-container="{selector: 'img'}"  :options="todaySelectOption" ref="todaySelectSwiper">
             <swiper-slide  v-for="slide in selectedSlides" :key="slide.id">
                 <div  class="today-item">
                     <div aspectratio   class="today-img">
@@ -104,16 +107,33 @@ export default {
 </script>
 
 <style scoped lang="less">
+    .home {
+        background-color: #efefef;
+    }
     .banner{
-        height:31.5vh;
+        height:35vh;
+        background-color: #efefef;
     }
 
+    .coffee-msg{
+        background-color: #efefef;
+        height: 17.2vh;
+
+    }
     .guide{
+        position: relative;
+        top: -4vh;
+        left: 4px;
+        z-index:10;
+        padding: 40px 0;
+        border-radius: 24px;
+        background-color:#fff;
+        width: 700px;
+        margin:0 25px;
         height:8vh;
         display:flex;
         justify-content: space-between;
         align-items:center;
-        padding:4px 0;
         .iconCoffee{
             width: 76px;
             margin-bottom: 6px;
@@ -132,10 +152,12 @@ export default {
         }
     }
     .selected{
-        height:37vh;
+        position: relative;
+        top: -6.8vh;
         background-color: #efefef;
         padding:6px 30px 18px;
         text-align: left;
+        height:33vh;
         .title{
             margin: 16px 0;
             padding-left: 44px;

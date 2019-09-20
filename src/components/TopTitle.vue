@@ -23,7 +23,7 @@ export default {
     },
     bgColor: { // 只支持 十六进制的颜色值
       type: String,
-      default: '#1b6d85',
+      default: '#000',
       validator: function (value) {
         return !(value.indexOf('#') === 0 && (value.length === 4 || value.length === 7) && !(/[^0-9A-Fa-f]/.test(value)))
       }

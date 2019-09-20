@@ -18,6 +18,9 @@ export let routes = [
     path: '/home',
     name: 'home',
     title: '主页',
+    meta: {
+      title: '主页'
+    },
     className: 'fangzi',
     components: {
       TopTitle: TopTitle,
@@ -31,6 +34,9 @@ export let routes = [
     path: '/theme',
     name: 'theme',
     title: '主题',
+    meta: {
+      title: '主题'
+    },
     className: 'location',
     components: {
       TopTitle: TopTitle,
@@ -44,6 +50,9 @@ export let routes = [
     path: '/list',
     name: 'list',
     title: '菜单',
+    meta: {
+      title: '菜单'
+    },
     className: 'caidan',
     components: {
       TopTitle: TopTitle,
@@ -57,6 +66,9 @@ export let routes = [
     path: '/user',
     name: 'user',
     title: '我的',
+    meta: {
+      title: '我的'
+    },
     className: 'wutouxiang',
     components: {
       TopTitle: TopTitle,
