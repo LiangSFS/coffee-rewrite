@@ -142,12 +142,12 @@ module.exports = {
           libs: {
             name: 'chunk-libs',
             test: /[\\/]node_modules[\\/]/,
-            priority: -10,
+            priority: 20,
             chunks: 'initial'
           },
           swiper: {
             name: 'chunk-swiper',
-            priority: 10,
+            priority: 30,
             test: /[\\/]node_modules[\\/]_?swiper[\\/]/
           },
           // axios: {
@@ -158,8 +158,8 @@ module.exports = {
           commons: {
             name: 'chunk-commons',
             test: resolve('src/components'), // 公共组件库
-            minChunks: 3, // 模块被引入 >= 3 次 , 便分割
-            priority: -20,
+            minChunks: 2, // 模块被引入 >= 3 次 , 便分割
+            priority: 10,
             reuseExistingChunk: true // 默认使用已有模块
           }
 
