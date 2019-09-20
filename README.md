@@ -1,4 +1,4 @@
-## 尝试使用vue-cli@3.x 重构 咖啡网站
+## 尝试使用vue-cli@3.x （主要是使用vue-cli@2.x）重构 咖啡网站
 
 ## Demo
 
@@ -22,7 +22,7 @@
 
  
 
-## Usage
+## Usage 
 
 vue-cli@3.x 重构项目 vue.config.js 从零配置 内置webpack（附带热替换）（现在【暂定】引入axios 和 vue-awesome-swiper）
 
