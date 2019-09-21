@@ -11,12 +11,17 @@ export default {
       timer = setTimeout(func, delay)
     }
   },
-  debounce (func, delay) {
-    let timer
-    return function () {
-      clearTimeout(timer)
+  debounce (func) {
+    let flag = false //  true 表示已经触发
+    return function (...rest) {
+      if (flag) {
+        return false
+      }
 
-      timer = setTimeout(func, delay)
+      flag = true
+      return new Promise(func(...rest)).then(() => {
+        flag = false
+      })
     }
   },
   scrollTop () {
