@@ -244,7 +244,7 @@ export default {
                width: 180px;
                margin:0 10px;
                background-color: darkcyan;
-               border-radius:10px;
+               border-radius:20px;
                overflow: hidden;
            }
            .imgWrap{
