@@ -114,6 +114,8 @@ export default {
             document.ontouchmove = document.ontouchup = null
             return false
           }
+
+          return false
         }
       },
       unbind (el) {
