@@ -15,10 +15,10 @@
                     </div>
                 </div>
                 <div v-lazy-container="{ selector: 'img' }" class="product-list" >
-                    <div v-for="listItem in productItem[1].list"  class="detail-item" :key="listItem.id">
+                    <div v-for="listItem in productItem[1].list"  class="detail-item" @click="detailDescribe(listItem)" :key="listItem.id">
                         <div class="back-line"></div>
                         <div aspectratio class="imgWrap">
-                            <img aspectratio-content src="" alt="" />
+                            <img aspectratio-content :data-src="listItem.img.url" :alt="listItem.img.alt" :title="listItem.img.title" />
                         </div>
                         <div class="product-detail">
                             <h5>{{listItem.name}}</h5>
@@ -31,11 +31,42 @@
             </div>
 
         </div>
+        <ModalCover animation="slide-left" class="list-modal"  v-drag="{close}" :start="isStartModal" >
+            <template #close >
+                <IconSvg class="modal-close" className="shuangxiajiantou"/>
+            </template>
+            <template #default>
+                <div class="header">商品详情</div>
+                <div class="modal-content" id="modal-content">
+                    <div aspectratio class="headImg">
+                        <img aspectratio-content :src="modalContent.img.url" :alt="modalContent.img.alt" :title="modalContent.img.title">
+                    </div>
+                    <h5 class="name">{{modalContent.name}}</h5>
+                    <p class="des">{{modalContent.des}}</p>
+                    <div class="detail-text">
+                        <table>
+                            <tr><th>规格</th><td><span class="active">小杯</span></td><td><span>中杯</span></td><td><span>大杯</span></td></tr>
+                            <tr><th>温度</th><td><span>冰</span></td><td><span class="active">常温</span></td></tr>
+                            <tr><th>糖</th><td><span>无糖</span></td><td><span class="active">单糖</span></td></tr>
+                            <tr><th>奶</th><td><span class="active">无奶</span></td><td><span>单份奶</span></td><td><span>双份奶</span></td></tr>
+                        </table>
+                        <p v-if="modalContent.detailInfo">{{modalContent.detailInfo}}</p>
+                        <p v-else>暂无该产品的介绍信息！！！</p>
+                    </div>
+                    <div class="buttons">
+
+                    </div>
+                </div>
+            </template>
+        </ModalCover>
     </div>
 </template>
 
 <script>
 import { utils } from '../utils/list.util.js'
+
+import ModalCover from '../components/ModalCover.vue'
+import IconSvg from '../components/IconSvg.vue'
 export default {
   name: 'List',
   created () {
@@ -54,8 +85,45 @@ export default {
     categoryList: [],
     currentIndex: 0,
 
+    isStartModal: false, // 是否要显示弹窗
+    modalContent: { img: {} }, // 商品详情
     handleScroll: null // handleScroll
   }),
+  directives: {
+    drag: {
+      bind (el, binding) {
+        let currentEl = el
+
+        // console.log(this)
+        currentEl.ontouchstart = function (ev) {
+          ev = ev || window.ev
+
+          let x = ev.changedTouches[0].clientX - currentEl.offsetLeft
+
+          document.ontouchmove = function (ev) {
+            ev = ev || window.ev
+
+            let moveLeft = ev.changedTouches[0].clientX - x
+            if (moveLeft > 30) {
+              binding.value.close()
+            }
+            return false
+          }
+          document.ontouchup = function (ev) {
+            ev = ev || window.ev
+            document.ontouchmove = document.ontouchup = null
+          }
+
+          return false
+        }
+      },
+      unbind (el) {
+        let currentEl = el
+
+        currentEl.ontouchstart = null
+      }
+    }
+  },
   methods: {
     changeIndex (index, elmId) {
       this.currentIndex = index
@@ -69,6 +137,15 @@ export default {
         top: scrollTop,
         behavior: 'smooth'
       })
+    },
+    detailDescribe (productDetail) {
+      this.modalContent = productDetail
+      this.$nextTick(() => {
+        this.isStartModal = true
+      })
+    },
+    close () {
+      this.isStartModal = false
     }
   },
   computed: {
@@ -85,6 +162,10 @@ export default {
       let curIndex = this.currentIndex
       return cateList[curIndex]
     }
+  },
+  components: {
+    ModalCover,
+    IconSvg
   },
   beforeDestroy () {
     document.removeEventListener('scroll', this.handleScroll, false)
@@ -215,6 +296,101 @@ export default {
            }
        }
    }
+   .list-modal{
+       display:flex;
+       justify-content: center;
+       align-items: center;
+       background-color: rgba(255, 255, 255, .96);
+       .modal-close{
+           font-weight: 700;
+           font-size: 30px;
+           animation: moveLeftArrow 1.6s infinite;
+       }
+   }
+   .header{
+       position: absolute;
+       top: 60px;
+       left:50%;
+       font-size: 50px;
+       font-weight:700;
+       transform:translateX(-50%);
+   }
+   #modal-content{
+       width: 600px;
+       height:70vh;
+       border-radius: 30px;
+       background-color: #e3facb;
+       position: relative;
+       overflow: hidden;
+       .headImg{
+           aspect-ratio: "17:10"
+       }
+       .name{
+           position: absolute;
+           left: 30px;
+           top: 180px;
+           font-size: 40px;
+           z-index: 10;
+           color:#fff;
+       }
+       .des{
+           position: absolute;
+           left: 30px;
+           top: 280px;
+           font-size: 26px;
+           z-index:10;
+           color:#fff;
+       }
+       .detail-text{
+           height: 52%;
+           overflow:hidden;
+           overflow-y: scroll;
+           table{
+               margin: 20px;
+               font-size: 34px;
+               th{
+                   text-align:left;
+                   padding: 10px;
+               }
+               td{
+                   padding:10px;
+                   text-align:center;
+               }
+               span{
+                   text-align:center;
+                   display: block;
+                   padding: 10px 18px;
+                   background-color:#fff;
+                   border-radius: 34px;
+               }
+               span.active{
+                   background-color: #d7cebf;
+                   color: #fff;
+               }
+
+           }
+           p{
+               border-top: 2px solid #ccc;
+               border-bottom: 2px solid #ccc;
+               padding: 30px 0;
+               margin: 0 24px;
+               text-indent:2em;
+               text-align:left;
+               font-size: 34px;
+               white-space: normal;
+               word-wrap: break-word;
+           }
+       }
+   }
+   @keyframes moveLeftArrow {
+       from{
+           transform: translateX(-200%) rotate(-90deg) ;
+       }
+       to{
+           transform: translateX(-80%) rotate(-90deg) scale(1.4);
+       }
+   }
+
 </style>
 <style scoped lang="postcss">
     @svg border-bottom{

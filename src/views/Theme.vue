@@ -240,6 +240,7 @@ export default {
         display: flex;
         justify-content:center;
         align-items: center;
+        background: rgba(0, 0, 0, .5);
     }
     .modal-content {
         width: 750px;
@@ -263,9 +264,9 @@ export default {
         font-weight: 800;
         color: white;
         cursor: pointer;
-        animation: moveArrow 1.6s infinite;
+        animation: moveTopArrow 1.6s infinite;
     }
-    @keyframes moveArrow {
+    @keyframes moveTopArrow {
         from{
             top: 10px;
         }

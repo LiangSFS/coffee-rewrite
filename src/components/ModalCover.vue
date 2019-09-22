@@ -31,7 +31,6 @@ export default {
        top:0;
        left:0;
        z-index: 1000;  //盖住 TopTitle  TabBar 组件
-       background: rgba(0, 0, 0, .5);
        display: flex;
        justify-content: center;
        align-items: center;
@@ -42,5 +41,11 @@ export default {
    }
    .modal-cover-slide-up-enter, .modal-cover-slide-up-leave-to {
        top: 100vh;
+   }
+   .modal-cover-slide-left-enter-active, .modal-cover-slide-left-leave-active {
+       transition: left  .6s cubic-bezier(0,.28,.72,.94);
+   }
+   .modal-cover-slide-left-enter, .modal-cover-slide-left-leave-to {
+       left: 100vw;
    }
 </style>
