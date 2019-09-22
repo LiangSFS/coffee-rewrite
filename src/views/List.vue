@@ -107,10 +107,12 @@ export default {
             if (moveLeft > 30) {
               binding.value.close()
             }
+            return false
           }
           document.ontouchup = function (ev) {
             ev = ev || window.ev
             document.ontouchmove = document.ontouchup = null
+            return false
           }
         }
       },
