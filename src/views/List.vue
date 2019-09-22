@@ -43,7 +43,7 @@
                     </div>
                     <h5 class="name">{{modalContent.name}}</h5>
                     <p class="des">{{modalContent.des}}</p>
-                    <div class="detail-text">
+                    <div @touchstart.stop  class="detail-text">
                         <table>
                             <tr><th>规格</th><td><span class="active">小杯</span></td><td><span>中杯</span></td><td><span>大杯</span></td></tr>
                             <tr><th>温度</th><td><span>冰</span></td><td><span class="active">常温</span></td></tr>
@@ -107,14 +107,11 @@ export default {
             if (moveLeft > 30) {
               binding.value.close()
             }
-            return false
           }
           document.ontouchup = function (ev) {
             ev = ev || window.ev
             document.ontouchmove = document.ontouchup = null
           }
-
-          return false
         }
       },
       unbind (el) {
@@ -357,6 +354,7 @@ export default {
                    text-align:center;
                }
                span{
+                   cursor: pointer;
                    text-align:center;
                    display: block;
                    padding: 10px 18px;
