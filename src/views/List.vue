@@ -43,7 +43,7 @@
                     </div>
                     <h5 class="name">{{modalContent.name}}</h5>
                     <p class="des">{{modalContent.des}}</p>
-                    <div @touchstart.stop.prevent @touchmove.stop.prevent  class="detail-text">
+                    <div @touchstart.stop @touchmove.stop  class="detail-text">
                         <table>
                             <tr><th>规格</th><td><span class="active">小杯</span></td><td><span>中杯</span></td><td><span>大杯</span></td></tr>
                             <tr><th>温度</th><td><span>冰</span></td><td><span class="active">常温</span></td></tr>
