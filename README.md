@@ -166,3 +166,5 @@ swiper  内置 lazy  在不自动切换时 第一个图片一直处于加载（�
 ​                三、详情内容 部分的 滚动 添加  stop  (同样 是 touchstart、touchmove) 阻止冒泡、以免触发 ModalCover  的 v-drag  拖拽事件   不能这样【添加  prevent (同样 是 touchstart、touchmove) 阻止默认事件】 滚动失效了 
 
 ​                四、ModalCover  组件 v-drag  必须 添加 touchmove、touchstart  阻止默认事件 
+
+​               五、 list 组件 样式 修改      商品图圆角弧度变大 
