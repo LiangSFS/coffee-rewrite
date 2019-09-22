@@ -244,8 +244,9 @@ export default {
                width: 180px;
                margin:0 10px;
                background-color: darkcyan;
-               border-radius:20px;
-               overflow: hidden;
+               img{
+                   border-radius:20px;
+               }
            }
            .imgWrap{
                aspect-ratio: "1:1";

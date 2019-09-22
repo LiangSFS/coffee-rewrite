@@ -167,4 +167,4 @@ swiper  内置 lazy  在不自动切换时 第一个图片一直处于加载（�
 
 ​                四、ModalCover  组件 v-drag  必须 添加 touchmove、touchstart  阻止默认事件 
 
-​               五、 list 组件 样式 修改      商品图圆角弧度变大 
+​               五、 list 组件 样式 修改      商品图圆角弧度变大  图片是absolute     定位  ，不要将圆角放在其父元素上 
