@@ -165,4 +165,4 @@ swiper  内置 lazy  在不自动切换时 第一个图片一直处于加载（�
 
 ​                三、详情内容 部分的 滚动 添加  stop  阻止冒泡、以免触发 ModalCover  的 v-drag  拖拽事件
 
-​                四、ModalCover  组件 v-drag  必须 添加 touchmove  阻止默认事件 
+​                四、ModalCover  组件 v-drag  必须 添加 touchmove、touchstart  阻止默认事件 
