@@ -243,7 +243,9 @@ export default {
            .imgWrap{
                width: 180px;
                margin:0 10px;
+               border-radius:20px;
                background-color: darkcyan;
+               overflow:hidden;
                img{
                    border-radius:20px;
                }
