@@ -18,7 +18,7 @@
 
 线上  demo   地址 ： [https://liangsfs.github.io/coffee-rewrite/](https://liangsfs.github.io/coffee-rewrite/) 【用手机原生浏览器打开】
 
-***  注意 ！！！ 一、 我没有做后台，请求数据是gitHub 上只能用hash 模式 ，所以在页面切换时在某些浏览器不生效 ,但是页面布局没问题               二、 因为网页 请求数据在gitHub （我另外的项目，gitHub 每天的访问很多）上， 加载 有时会失败（橘色的提示、红色提示是我写的测试），但不是我的网页写的有问题，是网速 （请多刷新几次）***
+***  注意 ！！！ 一、 我没有做后台，请求数据是gitHub 上只能用hash 模式 ，所以在页面切换时在某些浏览器不生效 ,但是页面布局没问题、同时 没有后台存储数据，不用注册可以直接登录（email 形式就行 例如 skkaf@qq.com ）               二、 因为网页 请求数据在gitHub （我另外的项目，gitHub 每天的访问很多）上， 加载 有时会失败（橘色的提示、红色提示是我写的测试），但不是我的网页写的有问题，是网速 （请多刷新几次）***
 
  
 
@@ -167,4 +167,16 @@ swiper  内置 lazy  在不自动切换时 第一个图片一直处于加载（�
 
 ​                四、ModalCover  组件 v-drag  必须 添加 touchmove、touchstart  阻止默认事件 
 
-​               五、 list 组件 样式 修改      商品图圆角弧度变大  图片是absolute     定位  ，不要将圆角放在其父元素上 
+​                五、 list 组件 样式 修改      商品图圆角弧度变大  图片是absolute     定位  ，不要将圆角放在其父元素上 
+
+
+
+### 19.9.22
+
+​                一、 添加 login 组件   email  和  password（密码） 字段    （email 形式就行   skdfh@qq.com   ）            
+
+​                二、password  字段  添加  MD5 加密  、添加 全局路由守卫，使用 meta.requiredAuth 作权限判断
+
+​               三、添加自定义 表单组件，添加 async-validator   作 表单验证
+
+​               四、 添加 注册 组件 

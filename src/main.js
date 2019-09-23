@@ -2,6 +2,8 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router/index.js'
 import store from './store/index.js'
+import lockr from 'lockr'
+
 import VueAwesomeSwiper from 'vue-awesome-swiper'
 import VueLazyload from 'vue-lazyload'
 
@@ -20,6 +22,18 @@ Vue.use(VueAwesomeSwiper)
 Vue.use(VueLazyload)
 
 Vue.config.productionTip = false
+
+router.beforeEach((to, from, next) => {
+  if (to.meta.requireAuth) {
+    console.log(lockr.get('email') && lockr.get('password'))
+    if (lockr.get('email') && lockr.get('password')) {
+      next()
+    } else {
+      next('/login')
+    }
+  }
+  next()
+})
 
 new Vue({
   router,
