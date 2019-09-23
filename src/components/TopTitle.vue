@@ -1,7 +1,10 @@
 <template>
-    <div class="top-title" :style="{backgroundColor: bgColor }">
-        <span  v-if="back"  @click="$router.go(-1)" class="back">{{backText}}</span>
-        <span v-if="Boolean(title)" class="title">{{title}}</span>
+    <div class="top-wrap">
+        <div class="container"></div>
+        <div class="top-title" :style="{backgroundColor: bgColor }">
+            <span  v-if="back"  @click="$router.go(-1)" class="back">{{backText}}</span>
+            <span v-if="Boolean(title)" class="title">{{title}}</span>
+        </div>
     </div>
 </template>
 
@@ -31,8 +34,10 @@ export default {
   }
 }
 </script>
-
 <style scoped lang="less">
+    .top-wrap .container {
+        height:100px;
+    }
     .top-title {
         position:fixed;
         top:0;

@@ -18,8 +18,8 @@
                             <div class="slide-item">
                                 <div class="item-content">
                                     <h5>{{slide.headLine}}</h5>
-                                    <div aspectratio class="imgWrap">
-                                        <img aspectratio-content class="swiper-lazy" :data-src="slide.img.url" :alt="slide.img.alt"  :title="slide.img.title" />
+                                    <div v-if="!!slide.img" aspectratio class="imgWrap">
+                                        <img aspectratio-content class="swiper-lazy"  :data-src="slide.img.url" :alt="slide.img.alt"  :title="slide.img.title" />
                                         <div class="swiper-lazy-preloader"></div>
                                     </div>
 
@@ -64,6 +64,7 @@ export default {
 
   data: () => ({
     themeList: [],
+    themeSlides: [],
     isStartModal: false, // 是否开始 modal 出现
     themeOption: {
     //  init: false,
@@ -77,8 +78,7 @@ export default {
       pagination: {
         el: '.swiper-pagination'
       }
-    },
-    themeSlides: []
+    }
 
   }),
   directives: {
@@ -124,6 +124,7 @@ export default {
         // console.log(data)
         data = data.data
         this.themeSlides = data
+        // this.themeSlides.push({ headLine: "前往“为您推荐”页面" })
         this.isStartModal = true
 
         // 添加高斯模糊

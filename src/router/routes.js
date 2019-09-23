@@ -19,6 +19,7 @@ export let routes = [
     name: 'home',
     title: '主页',
     meta: {
+      requireAuth: true,
       title: '主页'
     },
     className: 'fangzi',
@@ -35,6 +36,7 @@ export let routes = [
     name: 'theme',
     title: '主题',
     meta: {
+      requireAuth: true,
       title: '主题'
     },
     className: 'location',
@@ -51,6 +53,7 @@ export let routes = [
     name: 'list',
     title: '菜单',
     meta: {
+      requireAuth: true,
       title: '菜单'
     },
     className: 'caidan',
@@ -67,6 +70,7 @@ export let routes = [
     name: 'user',
     title: '我的',
     meta: {
+      requireAuth: true,
       title: '我的'
     },
     className: 'wutouxiang',
