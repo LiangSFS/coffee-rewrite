@@ -173,7 +173,7 @@ swiper  内置 lazy  在不自动切换时 第一个图片一直处于加载（�
 
 ### 19.9.23
 
-​                一、 添加 login 组件   email  和  password（密码） 字段    （email 形式就行   skdfh@qq.com   ）            
+​                一、 添加 login 登录组件   email  和  password（密码） 字段    （email 形式就行   skdfh@qq.com   ）            
 
 ​                二、password  字段  添加  MD5 加密  、添加 全局路由守卫，使用 meta.requiredAuth 作权限判断
 
@@ -189,4 +189,4 @@ swiper  内置 lazy  在不自动切换时 第一个图片一直处于加载（�
 
 ​               二、正则验证   长度    /^   $/  必须加上  从开头 到结尾
 
-​               三、添加 购物车 和 vuex 插件 
+​               三、添加 购物车 和 vuex 插件、list菜单组件 用click 触发detail 而不用 touchstart ,因此其子元素的点击触发 最好都使用 click .stop  

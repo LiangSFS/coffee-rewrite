@@ -15,7 +15,7 @@
                     </div>
                 </div>
                 <div v-lazy-container="{ selector: 'img' }" class="product-list" >
-                    <div v-for="listItem in productItem[1].list"  class="detail-item" @touchstart="detailDescribe(listItem)" :key="listItem.id">
+                    <div v-for="listItem in productItem[1].list"  class="detail-item" @click="detailDescribe(listItem)" :key="listItem.id">
                         <div class="back-line"></div>
                         <div aspectratio class="imgWrap">
                             <img aspectratio-content :data-src="listItem.img.url" :alt="listItem.img.alt" :title="listItem.img.title" />
@@ -25,7 +25,7 @@
                             <p>{{listItem.des}}</p>
                             <span class="price">￥{{listItem.price}}</span>
                             <div class="shop-wrap">
-                                <span class="sub" v-if="!!cartShowList[listItem.id]" @touchstart.stop="subCart(listItem.id)">-</span><span class="product-count" v-if="!!cartShowList[listItem.id]">{{cartShowList[listItem.id].count}}</span><span class="add" @touchstart.stop="addCart(listItem)" >+</span>
+                                <span class="sub" v-if="!!cartShowList[listItem.id]" @click.stop="subCart(listItem.id)">-</span><span class="product-count" v-if="!!cartShowList[listItem.id]">{{cartShowList[listItem.id].count}}</span><span class="add" @click.stop="addCart(listItem)" >+</span>
                             </div>
                         </div>
                     </div>
