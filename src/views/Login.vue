@@ -42,7 +42,7 @@ export default {
         required: true
       },
       password: {
-        pattern: /[a-zA-Z0-9_]{6,10}/, //  6 、10中  10和， 有一个空格才行
+        pattern: /^[a-zA-Z0-9_]{6,10}$/, // 验证长度必须 ^ $ 从开始到结尾
         required: true
       }
     },
