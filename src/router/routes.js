@@ -10,7 +10,9 @@ import TopTitle from '@/components/TopTitle.vue'
 const Home = () => import(/* webpackChunkName: "home" */'../views/Home.vue')
 const Theme = () => import(/* webpackChunkName: "theme" */'../views/Theme.vue')
 const list = () => import(/* webpackChunkName: "list" */'../views/List.vue')
+const cart = () => import(/* webpackChunkName: "cart" */'../views/Cart.vue')
 const user = () => import(/* webpackChunkName: "user" */'../views/About.vue')
+const test = () => import(/* webpackChunkName: "test" */'../views/About.vue')
 
 export let routes = [
   {
@@ -66,6 +68,22 @@ export let routes = [
   },
   {
     // path: '/coffee-rewrite/user',  gitHub
+    path: '/cart',
+    name: 'cart',
+    title: '购物车',
+    meta: {
+      requireAuth: true,
+      title: '购物车'
+    },
+    className: 'gouwuche',
+    components: {
+      TopTitle: TopTitle,
+      TabBar: TabBar,
+      default: cart
+    }
+  },
+  {
+    // path: '/coffee-rewrite/user',  gitHub
     path: '/user',
     name: 'user',
     title: '我的',
@@ -78,6 +96,22 @@ export let routes = [
       TopTitle: TopTitle,
       TabBar: TabBar,
       default: user
+    }
+  },
+  {
+    // path: '/coffee-rewrite/user',  gitHub
+    path: '/test',
+    name: 'test',
+    title: '测试',
+    meta: {
+      requireAuth: true,
+      title: '测试'
+    },
+    className: 'ceshi1',
+    components: {
+      TopTitle: TopTitle,
+      TabBar: TabBar,
+      default: test
     }
   }
 ]

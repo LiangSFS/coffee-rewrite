@@ -1,7 +1,7 @@
 <template>
   <div class="about">
     <h1>This is an about page</h1>
-      <button @click="lockrm">测试按钮，退出</button>
+      <button @click="lockrm">测试按钮，登录退出</button>
   </div>
 </template>
 

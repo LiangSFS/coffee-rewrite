@@ -4,6 +4,7 @@
             <router-link :to="route.path" class="each-link">
                 <IconSvg :className="route.className" class="iconSvg" />
                 {{route.title}}
+                <div v-if="(route.path === '/cart') && cartList.length" class="cart-msg-ball"></div>
             </router-link>
         </div>
     </nav>
@@ -13,6 +14,8 @@
 import { routes } from '../router/routes.js'
 
 import IconSvg from '@/components/IconSvg'
+
+import { mapState } from 'vuex'
 // 字体图标名
 // let fontNames = ['#icon-fangzi', '#icon-location', '#icon-caidan', '#icon-wutouxiang']
 
@@ -21,6 +24,11 @@ export default {
   data: () => ({
     routes
   }),
+  computed: {
+    ...mapState({
+      cartList: 'shoppingCart'
+    })
+  },
   components: {
     IconSvg
   }
@@ -55,6 +63,19 @@ export default {
         .each-link.router-link-exact-active {
             background-color: saddlebrown;
             color: #fff;
+        }
+    }
+    .each-link{
+        position: relative;
+        .cart-msg-ball{
+            position: absolute;
+            top: -15px;
+            right: 15px;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            font-size: 30px;
+            background-color: #f00;
         }
     }
 </style>

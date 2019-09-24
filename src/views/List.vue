@@ -15,7 +15,7 @@
                     </div>
                 </div>
                 <div v-lazy-container="{ selector: 'img' }" class="product-list" >
-                    <div v-for="listItem in productItem[1].list"  class="detail-item" @click="detailDescribe(listItem)" :key="listItem.id">
+                    <div v-for="listItem in productItem[1].list"  class="detail-item" @touchstart="detailDescribe(listItem)" :key="listItem.id">
                         <div class="back-line"></div>
                         <div aspectratio class="imgWrap">
                             <img aspectratio-content :data-src="listItem.img.url" :alt="listItem.img.alt" :title="listItem.img.title" />
@@ -24,6 +24,9 @@
                             <h5>{{listItem.name}}</h5>
                             <p>{{listItem.des}}</p>
                             <span class="price">￥{{listItem.price}}</span>
+                            <div class="shop-wrap">
+                                <span class="sub" v-if="!!cartShowList[listItem.id]" @touchstart.stop="subCart(listItem.id)">-</span><span class="product-count" v-if="!!cartShowList[listItem.id]">{{cartShowList[listItem.id].count}}</span><span class="add" @touchstart.stop="addCart(listItem)" >+</span>
+                            </div>
                         </div>
                     </div>
 
@@ -67,6 +70,8 @@ import { utils } from '../utils/list.util.js'
 
 import ModalCover from '../components/ModalCover.vue'
 import IconSvg from '../components/IconSvg.vue'
+
+import { mapState, mapMutations } from 'vuex'
 export default {
   name: 'List',
   created () {
@@ -147,7 +152,11 @@ export default {
     },
     close () {
       this.isStartModal = false
-    }
+    },
+    ...mapMutations({
+      addCart: 'incrementCart',
+      subCart: 'decrementCart'
+    })
   },
   computed: {
     categoryTitle () {
@@ -162,6 +171,15 @@ export default {
       })
       let curIndex = this.currentIndex
       return cateList[curIndex]
+    },
+    ...mapState({
+      cartList: 'shoppingCart'
+    }),
+    cartShowList () {
+      return this.cartList.reduce((showList, cur) => {
+        showList[cur.id] = cur
+        return showList
+      }, {})
     }
   },
   components: {
@@ -268,8 +286,31 @@ export default {
                    color:#8C8C8C;
                }
                span{
-                   font-size: 24px;
+                   font-size: 32px;
                    color:#ff0000;
+
+               }
+               .shop-wrap{
+                   position: absolute;
+                   bottom: 30px;
+                   right: 10px;
+                   .add, .sub{
+                       display:inline-block;
+                       color:#fff;
+                       width: 40px;
+                       height: 40px;
+                       line-height: 40px;
+                       font-size: 30px;
+                       border-radius: 50%;
+                       text-align:center;
+                       background-color: #8bbcd2;
+                   }
+                   .product-count{
+                       padding: 30px;
+                       color: #FF6F00;
+                       font-size: 32px;
+                       font-weight: 900;
+                   }
 
                }
            }
