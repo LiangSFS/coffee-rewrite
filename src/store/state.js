@@ -3,5 +3,5 @@
  */
 // 状态管理值 state
 export default {
-
+  shoppingCart: []
 }
