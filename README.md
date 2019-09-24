@@ -189,4 +189,4 @@ swiper  内置 lazy  在不自动切换时 第一个图片一直处于加载（�
 
 ​               二、正则验证   长度    /^   $/  必须加上  从开头 到结尾
 
-​               三、添加 购物车 和 vuex 插件 
+​               三、添加 购物车 和 vuex 插件、list菜单组件 用click 触发detail 而不用 touchstart ,因此其子元素的点击触发 最好都使用 click .stop  

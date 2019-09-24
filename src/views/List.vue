@@ -25,7 +25,7 @@
                             <p>{{listItem.des}}</p>
                             <span class="price">￥{{listItem.price}}</span>
                             <div class="shop-wrap">
-                                <span class="sub" v-if="!!cartShowList[listItem.id]" @touchstart.stop="subCart(listItem.id)">-</span><span class="product-count" v-if="!!cartShowList[listItem.id]">{{cartShowList[listItem.id].count}}</span><span class="add" @touchstart.stop="addCart(listItem)" >+</span>
+                                <span class="sub" v-if="!!cartShowList[listItem.id]" @click.stop="subCart(listItem.id)">-</span><span class="product-count" v-if="!!cartShowList[listItem.id]">{{cartShowList[listItem.id].count}}</span><span class="add" @click.stop="addCart(listItem)" >+</span>
                             </div>
                         </div>
                     </div>
