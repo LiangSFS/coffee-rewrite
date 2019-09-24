@@ -1,5 +1,9 @@
 <template>
     <div class="login">
+        <div :class="['declaration', isShowDeclaration?'show':'']"><span @touchstart="isShowDeclaration = !isShowDeclaration">注意</span>
+        <p>没有后台，不会真正的提交数据，可以直接登录。
+        只需要email形式  例如sjhs@qq.com</p>
+        </div>
         <img src="../assets/login/icon.png" alt="">
         <CoffeeForm :model="formModel" :rules="formRules" ref="CoffeeForm" >
             <CoffeeFormItem prop="email">
@@ -45,7 +49,8 @@ export default {
     formModel: {
       email: '',
       password: ''
-    }
+    },
+    isShowDeclaration: false // 测试专用
   }),
   methods: {
     submitForm () {
@@ -90,6 +95,7 @@ export default {
       display: flex;
       flex-direction:column;
       align-items:center;
+      position: relative;
       img{
           margin-top: 80px;
           width: 130px;
@@ -121,14 +127,46 @@ export default {
               box-shadow: none;
           }
       }
+      .declaration{
+          position: absolute;
+          right: 30px;
+          top:30px;
+          width: 100px;
+          height: 60px;
+          border-radius: 20px;
+          overflow:hidden;
+          transition: all 1s linear;
+          padding: 0 20px;
+          &.show{
+              width: 650px;
+              height: 300px;
+              background-color:#fff;
+              span {
+                  color: #00aabb;
+                  text-decoration:underline;
+              }
+              p {
+                  color: #000;
+              }
+          }
+          span{
+              color: #fff;
+              cursor: pointer;
+              font-size: 30px;
+          }
+          p{
+              color: #fff;
+              font-size: 30px;
+          }
+      }
   }
-    .login-router{
-        position: relative;
-        top: -30px;
-        a{
-            font-size: 40px;
-            font-weight:900;
-            color: #000;
-        }
-    }
+  .login-router{
+       position: relative;
+       top: -30px;
+      a{
+          font-size: 40px;
+          font-weight:900;
+          color: #000;
+       }
+  }
 </style>
