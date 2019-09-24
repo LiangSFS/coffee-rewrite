@@ -15,7 +15,7 @@
                     </div>
                 </div>
                 <div v-lazy-container="{ selector: 'img' }" class="product-list" >
-                    <div v-for="listItem in productItem[1].list"  class="detail-item" @touchstart="detailDescribe(listItem)" :key="listItem.id">
+                    <div v-for="listItem in productItem[1].list"  class="detail-item" @click="detailDescribe(listItem)" :key="listItem.id">
                         <div class="back-line"></div>
                         <div aspectratio class="imgWrap">
                             <img aspectratio-content :data-src="listItem.img.url" :alt="listItem.img.alt" :title="listItem.img.title" />

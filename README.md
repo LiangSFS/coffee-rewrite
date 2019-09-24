@@ -173,7 +173,7 @@ swiper  内置 lazy  在不自动切换时 第一个图片一直处于加载（�
 
 ### 19.9.23
 
-​                一、 添加 login 组件   email  和  password（密码） 字段    （email 形式就行   skdfh@qq.com   ）            
+​                一、 添加 login 登录组件   email  和  password（密码） 字段    （email 形式就行   skdfh@qq.com   ）            
 
 ​                二、password  字段  添加  MD5 加密  、添加 全局路由守卫，使用 meta.requiredAuth 作权限判断
 
