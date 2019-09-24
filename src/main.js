@@ -25,7 +25,7 @@ Vue.config.productionTip = false
 
 router.beforeEach((to, from, next) => {
   if (to.meta.requireAuth) {
-    console.log(lockr.get('email') && lockr.get('password'))
+    // console.log(lockr.get('email') && lockr.get('password'))
     if (lockr.get('email') && lockr.get('password')) {
       next()
     } else {

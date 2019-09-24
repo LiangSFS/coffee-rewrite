@@ -42,7 +42,7 @@ export default {
         required: true
       },
       password: {
-        pattern: /[a-zA-Z0-9_-]{6,10}/,
+        pattern: /[a-zA-Z0-9_]{6, 10}/, //  6 、10中  10和， 有一个空格才行
         required: true
       }
     },
@@ -150,6 +150,7 @@ export default {
               }
           }
           span{
+              padding: 20px;
               color: #fff;
               cursor: pointer;
               font-size: 30px;
