@@ -48,16 +48,16 @@ export default {
 
       validator.validate({ [this.prop]: value }, (errors) => {
         if (errors) {
-          console.log(1, errors[0], this.error)
+          // console.log(1, errors[0], this.error)
 
           if (errors[0].message.includes('required')) {
-            console.log('required')
+            // console.log('required')
             this.error = '输入不能为空'
           } else if (errors[0].message.includes('email')) {
-            console.log('email')
+            // console.log('email')
             this.error = '请输入有效的邮箱地址'
           } else if (errors[0].message.includes('password')) {
-            console.log('password')
+            // console.log('password')
             this.error = '请输入由数字、字母、下划线组成的6到10位密码'
           }
 
