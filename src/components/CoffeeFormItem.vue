@@ -59,6 +59,8 @@ export default {
           } else if (errors[0].message.includes('password')) {
             // console.log('password')
             this.error = '请输入由数字、字母、下划线组成的6到10位密码'
+          } else if (errors[0].message.includes('username')) {
+            this.error = '请输入中文、英文、数字以及下划线组成的用户名'
           }
 
           // console.log(errors)

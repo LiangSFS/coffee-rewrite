@@ -17,8 +17,7 @@ export default {
   },
   methods: {
     lockrm () {
-      lockr.rm('email')
-      lockr.rm('password')
+      lockr.flush()
 
       this.$router.push('/')
     }

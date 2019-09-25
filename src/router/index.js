@@ -4,6 +4,7 @@ import { routes } from './routes.js'
 
 const Login = () => import(/* webpackChunkName: "login" */'@/views/Login.vue')
 const Register = () => import(/* webpackChunkName: "register" */'@/views/Register.vue')
+const UserModify = () => import(/* webpackChunkName: "user" */'@/views/UserModify.vue')
 
 Vue.use(Router)
 
@@ -27,6 +28,14 @@ export default new Router({
       name: 'register',
       component: Register
     },
-    ...routes
+    ...routes,
+    {
+      path: '/user-modify',
+      name: 'userModify',
+      meta: {
+        requireAuth: true
+      },
+      component: UserModify
+    }
   ]
 })
