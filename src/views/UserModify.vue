@@ -87,21 +87,21 @@ export default {
                 position: relative;
                 .ball{
                     position: absolute;
-                    width: 36px;
-                    height: 36px;
+                    width: 100px;
+                    height: 100px;
                     top:50%;
-                    left:0;
-                    transform: translateY(-50%) scale(.7);
-                    border:2px solid #000;
-                    border-radius: 50%;
+                    left:-50%;
+                    transform: translateY(-50%) scale(.34);
+                    border:10px solid #000;
+                    border-radius: 100%;
                     span{
                         position: absolute;
-                        top: 18px;
-                        left: 18px;
-                        transform:translate(-12px, -12px);
-                        width: 24px;
-                        height: 24px;
-                        border-radius: 50%;
+                        top: 50px;
+                        left: 50px;
+                        transform:translate(-30px, -30px);
+                        width: 60px;
+                        height: 60px;
+                        border-radius: 100%;
                     }
                 }
                 input:checked + .ball{
