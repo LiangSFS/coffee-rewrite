@@ -286,6 +286,7 @@ export default {
                    color:#8C8C8C;
                }
                span{
+                 //  font-family: "Raleway", "sans-serif";
                    font-size: 32px;
                    color:#ff0000;
 

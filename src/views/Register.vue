@@ -12,7 +12,7 @@
                 <CoffeeFormInput placeholder="6-10位数字、字母、下划线组成的密码" type="password" name="password" v-model="formModel.password"  />
             </CoffeeFormItem>
             <CoffeeFormItem  >
-                <CoffeeFormInput @touchstart.native="submitForm"   type="button" value="注册"/>
+                <CoffeeFormInput @touchstart.native="submitForm"   type="button" value="注册并登录"/>
             </CoffeeFormItem>
         </CoffeeForm>
         <p class="register-info">登录即代表同意咖啡的《用户使用协议》</p>
@@ -32,6 +32,7 @@ export default {
   data: () => ({
     formRules: {
       username: {
+        pattern: /^[0-9A-Za-z_\u4e00-\u9fa5]+$/, // 只许输入中文、英文、数字以及下划线
         required: true
       },
       email: {
@@ -62,12 +63,14 @@ export default {
         //   'password': MD5Password
         // }
 
+        lockr.set('username', this.username)
         lockr.set('email', this.formModel.email)
         lockr.set('password', MD5Password)
 
+        this.$message({ type: 'success', text: '登录成功' })
         this.$router.push('/')
       }).catch((errors) => {
-        console.log(errors)
+        // console.log(errors)
       })
     }
   },

@@ -21,8 +21,7 @@ export default {
 <style scoped lang="less">
     .coffee-message{
         width: 400px;
-        height: 100px;
-        line-height: 100px;
+        padding: 20px 10px;
         text-align: center;
         position: fixed;
         top:20px;

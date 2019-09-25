@@ -11,7 +11,7 @@ const Home = () => import(/* webpackChunkName: "home" */'../views/Home.vue')
 const Theme = () => import(/* webpackChunkName: "theme" */'../views/Theme.vue')
 const list = () => import(/* webpackChunkName: "list" */'../views/List.vue')
 const cart = () => import(/* webpackChunkName: "cart" */'../views/Cart.vue')
-const user = () => import(/* webpackChunkName: "user" */'../views/About.vue')
+const user = () => import(/* webpackChunkName: "user" */'../views/User.vue')
 const test = () => import(/* webpackChunkName: "test" */'../views/About.vue')
 
 export let routes = [
