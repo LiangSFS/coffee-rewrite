@@ -104,6 +104,7 @@ export default {
                width:100%;
                height:100%;
                background-color:rgba(0,0,0, .3);
+               display:block;
            }
            .user-name{
                font-size: 46px;
